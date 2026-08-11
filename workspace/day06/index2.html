@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude User Directory</title>
+  <!-- Google Fonts: Cormorant Garamond (Display Serif) & Inter (Sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- 브랜드 헤더 -->
+    <header class="brand-header">
+      <div class="brand-logo">
+        <svg class="brand-mark" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 0V18M0 9H18M2.636 2.636L15.364 15.364M15.364 2.636L2.636 15.364" stroke="#141413" stroke-width="2.5"/>
+        </svg>
+        <span class="brand-name">Claude Edition</span>
+      </div>
+    </header>
+
+    <!-- 사용자 디렉토리 메인 영역 -->
+    <main class="main-container">
+      <span class="category-badge">USER DIRECTORY</span>
+      <h1 class="main-title">사용자 목록</h1>
+      <p class="subtitle">API를 통해 불러온 사용자 이름과 이메일 정보입니다.</p>
+
+      <!-- 사용자 목록이 동적으로 추가될 ul 태그 -->
+      <ul id="user-list" class="user-list"></ul>
+    </main>
+  </div>
+
+  <!-- 자바스크립트 연결 -->
+  <script src="script2.js"></script>
+</body>
+</html>
