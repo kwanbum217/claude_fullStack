@@ -1,0 +1,41 @@
+---
+description: 실습 코드 생성 스킬 (S2). workspace/dayXX 폴더에 HTML/CSS 실습 파일 생성 시 자동 발동됩니다.
+globs: workspace/**/*.html, workspace/**/*.css
+alwaysApply: false
+---
+
+# S2. 실습 코드 생성 스킬
+
+학습 진도에 맞는 실습용 HTML/CSS 코드 파일을 생성합니다.
+
+## 작업 규칙
+- 위치: `workspace/day{회차번호}/` 폴더
+- 파일명: 영어 소문자 + 언더스코어 (예: box_practics.html)
+- 현재 진도 이내의 기술만 사용 (HTML + CSS 기초)
+
+## HTML 템플릿
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습 제목</title>
+</head>
+<body>
+  <!-- 실습 코드 -->
+</body>
+</html>
+```
+
+## 주의사항
+- 현재 학습 진도를 `memo/` 최신 노트로 확인합니다.
+- JavaScript, React 등 미학습 기술 사용 금지.
+- 외부 CSS 사용 시 동일 폴더 내 `.css` 생성.
+- 한국어 주석 포함, 공백 2칸(2 spaces) 들여쓰기, 이모지(Emoji) 사용 금지.
+
+## 작업 절차
+1. `memo/` 폴더 최신 메모로 진도 확인
+2. 요청에 맞는 실습 폴더 및 파일 경로 설정
+3. 템플릿 기반 코드 생성 및 외부 CSS 분리
+4. 사용자에게 결과 파일 공유
