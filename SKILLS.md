@@ -9,15 +9,15 @@
 
 | #  | 스킬 이름             | 설명                                  | 관련 폴더          | 담당 에이전트              |
 | -- | --------------------- | ------------------------------------- | ------------------ | -------------------------- |
-| S1 | 수업 메모 정리        | 수업 내용을 구조화된 메모로 정리       | `memo/`            | Claude, Antigravity        |
-| S2 | 실습 코드 생성        | 학습 주제에 맞는 HTML/CSS 실습 파일 생성 | `workspace/`       | Claude, Cursor, Codex      |
-| S3 | 코드 리뷰 및 피드백   | 작성된 코드의 문제점·개선점 분석       | `workspace/`       | Claude, Cursor, Codex      |
-| S4 | 개념 설명 및 Q&A      | 프로그래밍 개념을 한국어로 쉽게 설명   | —                  | Claude, Antigravity        |
-| S5 | 프로젝트 관리         | 파일 구조 정리, 문서 업데이트          | 프로젝트 전체      | Antigravity, OpenCode      |
-| S6 | 리소스 생성           | 학습용 이미지, 다이어그램 등 생성      | `resource/`        | Antigravity                |
-| S7 | 디버깅 및 문제 해결   | 코드 오류 원인 분석 및 수정 안내       | `workspace/`       | Claude, Cursor, Codex      |
-| S8 | 코드 리팩토링         | 기존 코드 구조 개선 및 최적화          | `workspace/`       | Cursor, Codex, OpenCode    |
-| S9 | Claude 디자인 시스템 | DESIGN.md 토큰 기반 UI/CSS 스타일 적용 | `workspace/`       | Claude, Antigravity, Cursor, Codex, OpenCode |
+| S1 | 수업 메모 정리        | 수업 내용을 구조화된 메모로 정리       | `memo/`            | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S2 | 실습 코드 생성        | 학습 주제에 맞는 HTML/CSS/JS 파일 생성| `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S3 | 코드 리뷰 및 피드백   | 작성된 코드의 문제점·개선점 분석       | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S4 | 개념 설명 및 Q&A      | 프로그래밍 개념을 한국어로 쉽게 설명   | —                  | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S5 | 프로젝트 관리         | 파일 구조 정리, 문서 업데이트          | 프로젝트 전체      | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S6 | 리소스 생성           | 학습용 이미지, 다이어그램 등 생성      | `resource/`        | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S7 | 디버깅 및 문제 해결   | 코드 오류 원인 분석 및 수정 안내       | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S8 | 코드 리팩토링         | 기존 코드 구조 개선 및 최적화          | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S9 | Claude 디자인 시스템 | DESIGN.md 토큰 기반 UI/CSS 스타일 적용 | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
 | S10| 에이전트 문서 동기화  | 새 메모/자료 발생 시 에이전트 문서 자동 동기화 | 프로젝트 전체 | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
 
 ---
@@ -277,11 +277,11 @@
 ┌─────────────┬─────────────────────────────────────────────┐
 │  에이전트    │  수행 가능 스킬                               │
 ├─────────────┼─────────────────────────────────────────────┤
-│  Claude     │  S1 S2 S3 S4 S7 S9 S10                      │
-│  Codex      │  S2 S3 S7 S8 S9 S10                         │
-│  Cursor     │  S2 S3 S7 S8 S9 S10                         │
-│  Antigravity│  S1 S4 S5 S6 S9 S10                         │
-│  OpenCode   │  S5 S8 S9 S10                               │
+│  Claude     │  S1 S2 S3 S4 S5 S6 S7 S8 S9 S10             │
+│  Codex      │  S1 S2 S3 S4 S5 S6 S7 S8 S9 S10             │
+│  Cursor     │  S1 S2 S3 S4 S5 S6 S7 S8 S9 S10             │
+│  Antigravity│  S1 S2 S3 S4 S5 S6 S7 S8 S9 S10             │
+│  OpenCode   │  S1 S2 S3 S4 S5 S6 S7 S8 S9 S10             │
 └─────────────┴─────────────────────────────────────────────┘
 ```
 
