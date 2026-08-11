@@ -39,8 +39,8 @@ claude_fullStack/
 │   └── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 회차별 실습 코드
-    ├── login1.html      # 로그인 폼 실습
-    ├── index3.html      # 시맨틱 HTML 레이아웃 실습
+    ├── day01/           # 1회차 실습 (login1.html)
+    ├── day02/           # 2회차 실습 (index3.html)
     ├── day03/           # 3회차 실습 (외부 CSS, 프로필 페이지, standard_html)
     ├── day04/           # 4회차 실습 (박스 모델, display, 선택자 실습)
     ├── day05/           # 5회차 실습 (JS 변수/함수, DOM 기본)
