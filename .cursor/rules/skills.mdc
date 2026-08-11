@@ -12,7 +12,7 @@ Cursor 에이전트는 `AGENTS.md`와 `SKILLS.md`에 정의된 8가지 스킬(S1
 1. **이모지 사용 금지**: 코드, 주석, 문서 등 모든 결과물에서 이모지를 사용하지 마세요.
 2. **언어**: 한국어를 기본 소통 언어 및 주석 언어로 사용하세요.
 3. **들여쓰기**: 공백 2칸(2 spaces)을 사용하세요.
-4. **학습 진도 제한**: HTML/CSS 완료, JavaScript 기초/DOM 조작/JSON/미니 게시판 CRUD 진행 중 (Node.js, React, DB 사용 금지).
+4. **학습 진도 제한**: HTML/CSS/JS 완료, Git & GitHub 기초 진행 중 (Node.js, React, DB 사용 금지).
 5. **파일 구조**:
    - `memo/`: `dayXX.txt` 수업 노트 (기존 형식 준수)
    - `workspace/`: `dayXX/` 폴더 내 실습 코드

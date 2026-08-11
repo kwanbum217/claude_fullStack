@@ -11,7 +11,7 @@
 | ---------- | ------------------------------------------------------- |
 | 프로젝트명 | **claude_fullStack** — 풀스택 웹 개발 학습 프로젝트     |
 | 학습 과정  | HTML → CSS → JavaScript → Node.js → React → DB(MongoDB/MySQL) |
-| 현재 진도  | **7회차** (HTML/CSS 완료, JS 기초·DOM 조작·JSON·미니 게시판 CRUD 학습 중) |
+| 현재 진도  | **8회차** (HTML/CSS/JS 완료, Git & GitHub 기초 학습 중) |
 | 학습 방식  | 오프라인 수업 → 메모 정리 → 실습 코드 작성              |
 
 ---
@@ -30,7 +30,8 @@ claude_fullStack/
 │   ├── day04.txt        # 4회차 — CSS 적용 방법, 선택자, 박스 모델
 │   ├── day05.txt        # 5회차 — CSS 응용, 레이아웃
 │   ├── day06.txt        # 6회차 — DOM 조작, fetch, HTTP/API, 브라우저-서버-DB 흐름
-│   └── day07.txt        # 7회차 — JSON 이해, 기능 명세 정리, 미니 게시판 CRUD 실습
+│   ├── day07.txt        # 7회차 — JSON 이해, 기능 명세 정리, 미니 게시판 CRUD 실습
+│   └── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 실습 코드
     ├── login1.html          # 로그인 폼 실습
@@ -49,7 +50,8 @@ claude_fullStack/
     │   └── selector_practics.html  # CSS 선택자 실습
     ├── day05/               # 5회차 실습
     ├── day06/               # 6회차 실습
-    └── day07/               # 7회차 실습 (미니 게시판 index1.html, style1.css, script1.js)
+    ├── day07/               # 7회차 실습 (미니 게시판 index1.html, style1.css, script1.js)
+    └── day08/               # 8회차 실습 (git_practics)
 ```
 
 ---
@@ -126,7 +128,7 @@ claude_fullStack/
 
 ### 4.4 학습 프로젝트 주의사항
 - 이 프로젝트는 **학습 목적**입니다. 복잡한 프레임워크 도입을 지양합니다.
-- 현재 진도에 맞는 기술만 사용합니다 (현재: HTML + CSS + JavaScript 기초/DOM/fetch/JSON/미니 게시판 CRUD).
+- 현재 진도에 맞는 기술만 사용합니다 (현재: HTML + CSS + JavaScript 기초/DOM/JSON/CRUD + Git & GitHub).
 - 코드 설명 시 **원리와 동작 방식**을 함께 설명합니다.
 - 정답을 바로 주기보다 **학습에 도움이 되는 힌트**를 우선 제공합니다.
 
@@ -144,7 +146,8 @@ claude_fullStack/
 | Day 05 | CSS 응용·레이아웃             | CSS 응용 및 배치                                      |
 | Day 06 | JS 기초·DOM 조작·fetch·API    | DOM 조작, fetch 비동기 통신, HTTP/API, 브라우저-서버-DB 흐름 |
 | Day 07 | JS 미니 게시판 CRUD·JSON      | JSON 개념, 기능 명세 프롬프트, 목록 출력, 게시글 추가/삭제, 부분 수정 |
-| Day 08 | *(진행 예정)*                 | —                                                    |
+| Day 08 | Git & GitHub 기초             | Git 개념, git init/status/add/commit, GitHub 연동    |
+| Day 09 | *(진행 예정)*                 | —                                                    |
 
 ---
 

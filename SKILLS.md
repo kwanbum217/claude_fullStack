@@ -296,7 +296,8 @@
 | HTML5 기초    | 완료   | O 사용 가능      |
 | CSS3 기초     | 완료   | O 사용 가능      |
 | CSS Flexbox   | 완료   | O 사용 가능      |
-| JavaScript    | 진행중 | O 사용 가능 (기초, DOM 조작, fetch/API, JSON, 미니 게시판 CRUD) |
+| JavaScript    | 완료   | O 사용 가능 (기초, DOM 조작, fetch/API, JSON, 미니 게시판 CRUD) |
+| Git & GitHub  | 진행중 | O 사용 가능 (git init, status, add, commit, push, remote 연결) |
 | Node.js       | 미학습 | X 사용 불가      |
 | React         | 미학습 | X 사용 불가      |
 | Database      | 미학습 | X 사용 불가      |
@@ -312,8 +313,8 @@ Phase 1 (현재)          Phase 2                 Phase 3
 ──────────────         ──────────────          ──────────────
 [완료] HTML 기초        JavaScript 심화          Node.js
 [완료] CSS 기초         이벤트 처리              React
-[진행] JS DOM·JSON·CRUD  비동기(async/await)      MongoDB/MySQL
-   반응형 웹            배포                     
+[완료] JS DOM·JSON·CRUD  비동기(async/await)      MongoDB/MySQL
+[진행] Git & GitHub 기초 배포                     
 ```
 
 ---
