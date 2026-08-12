@@ -7,3 +7,66 @@ day07폴더 전체를 git저장소를 만들고 github에 업로드하려고 한
 2. git status를 통해 현재 상태를 보여줘
 3. git add .  을 활용하여 전채 파일(index1.html, script1.js, style1.css)을 스테이징하고, 'day07 JavaScript 심화 - 미니 게시판 실습 업로드'라는 메세지로 커밋해줘.
 4. 커밋이 끝나면, github의 https://github.com/kwanbum217/day07-js-board.git 경로에 origin으로 연결하고 main브랜치로 push를 진행하라.
+
+
+[ 9회차 진도 ]
+1. Docker란 무엇인가
+  : Docker는 프로그램이 '어떤 컴퓨터에서 실행해도 항상 똑같이 동작하도록' 필요한 프로그램, 설정, 환경을 하나의 통째로 묶어서 실행시켜주는 도구이다.
+  : Git은 팀원 간의 코드 병합, Docker는 프로그램 배포 및 실행 환경 통일을 의미한다.
+  : 지금까지 우리는 VS Code에서. HTML/CSS/JS 파일을 만들고, 각자의 컴퓨터에 설치된 Node.js, npm, 브라우저에서 실행해왔다. 그런데 이 프로젝트를 다른 사람 컴퓨터로 옮기면 'Node 버전이 달라서 실행이 안된다','이 패키지가 없어서 에러가 난다.'와 같은 문제가 발생하게 된다. 이런한 문제들을 Docker는 '프로그램 + 그 프로그램이 필요로 하는 모든 환경'을 하나의 컴테이너에 통째로 담아서 어디서 실행하든 그 상자 안의 환경은 항상 똑같에 만드는 방식으로 해결한다.
+
+2. Docker Desktop 설치
+  : Docker Desktop이란 Docker를 내 컴퓨터에서 사용할 수 있께 해주는 설치형 프로그램이다.
+  : Docker엔진, 명령어(CLI), 그림으로 컨테이너 상태를 볼 수 있는 GUI환경이 설정되어 있는 프로그램이다.
+
+  [ Windows ]
+  (1)https://www.docker.com/products/docker-desktop 접속
+  (2)'Docker Desktop for Windows' - AMD64' 다운로드 후 설치 파일 실행
+  (3) 설치 중 'WSL 2'관련 안내가 뜨면 안내에 따라 진행 (WSL 2는 Windows안애서 Linux환경을 돌리는 기능으로, Docker가 내부적으로 이 위에서 동작한다.)
+  (4) 설치 완료 후 cmd창에서 docker --version 명령어를 입력하여 버전 정보가 출력되는지 확인한다.(간혹 설치 완료 시, 재부팅 필요 있음)
+
+
+  [ Mac ]
+  (1)https://www.docker.com/products/docker-desktop 접속
+  (2)본인 Mac 칩 종류에 맞는 버전 선택(Apple Silicon 또는 Intel Chip - 모르면 화면 왼쪽 위 사과 아이콘 -> '이 Mac에 관하여'에서 확인) 
+  (3)다운로드한 .dmg 파일 실행 -> Docker 아이콘을 Applications 폴더로 드래그
+  (4)Applications에서 Docker 실행
+
+  -> Docker Desktop을 실행해두는 것은 VS Code에서 Claude Code 확장을 활성해 두는 것과 비슷하다. Docker가 Desktop 프로그램이 꺼져 있으면, 아무리 명령어를 입력해도 'Docker'를 찾을 수 없습니다' 라는 에러가 뜬다
+
+3. 이미지(image)와 컨테이너(container)
+  : 이미지(image)는 프로그램 실행에 필요한 모든 것(소스코드, 설정, 실행환경)을 담아둔 설계도라고 할 수 있다.
+  : 컨테이너(Container)는 그 이미지를 실제로 실행시켜서 동작하고 있는 상태를 의미한다.
+  : 이미지 자체는 파일 묶음일 뿐 실행 중이 아니다. docker run 명령어로 이미지를 실행시키면 그 순간 컨테이너가 만들어지고, 그 컨테이너가 실제로 프로그램을 동작시킨다.
+  : 하나의 이미지로 여러개의 컨테이너를 동시에 실행시킬 수 있다.
+    ex) 이미지(붕어빵 틀) - 컨테이너(붕어빵)
+
+    [ 이미지와 컨테이너 - 첫 컨테이너 실행하기 프롬프트 ]
+    docker run hello-world 명령어를 실행해줘. 실행 결과 화면에 나온 메세지를 읽고, 무슨 일이 일어난건지(아마자룰 어디서 가져왔는지, 컨테이너가 어떻게 실행됐다가 끝났는지)순서대로 설명해줘. 그 다음 docker images와 docker ps -a 명령어도 실행해서 hello-world 이미지와 컨테이너가 각각 목록에 어떻게 나오는지 보여줘
+
+    - docker run hello-world : Docker가 내 컴퓨터에서 정상적으로 잘 작동하는지 테스트하기 위해 가장 먼저 실행해보는 대표적인 명령어를 의미한다.
+    - docker images : 내 컴퓨터에 있는 이미지 목록 확인
+    - docker ps : 현재 실행 중인 컨테이너 목록 확인
+    - docker ps -a : 멈춘 것 포함 전체 컨테이너 목록 확인
+
+    [ 이미지와 컨테이너 - 첫 컨테이너 실행 프롬프트 ]
+
+    [ 결과 예상 ]
+
+4. Dockerfile 문법
+  : Dockerfiledms '이미지를 어떻게 만들지'를 순서대로 적어놓은 설계도 텍스트 파일이다. 확장자 없이 파일명 자체가 Dockerfile이다.
+  : Dockerfile에 적힌 명령어를 위에서부터 순서대로 실행하면서 이미지가 만들어진다. 오늘은 정적 웹페이지(HTML/CSS/JS)를 담을 것이므로, '이미 만들어진 웹서버 위에 내 파일들을 복사해 넣은' 아주 짧은 Dockerfile만 사용한다.
+    ex) Dockerfile은 요리 레시피와 같다.
+    '1. 이 베이스를 가져와라
+    2. 이 재료를 넣어라
+    3. 이 포트로 손님을 받아라' 순서로 적혀있다. docker build 명령어는 이 레시피대로 실제 요리(이미지)를 환성하는 과정이다.
+
+    [ Dockerfile 작성 실습 프롬프트 ]
+    workspace/day09/board-docker 경로로 day07 폴더 안의 파일들을 복사해줘. 단, day07 폴더 안에 .git 숨김 폴더가 있다면 그건 복사 대상에서 제외해줘 그리고 같은 폴더 안에 Dockerfile을 만들어줘. 내용은 nginx:alpine을 베이스로 하고, 현재 폴더의 모든 파일을 /usr/share/nginx/html 경로로 복사하고 , 80번 포트를 사용한다고 표시하는 3줄짜리 Dockerfile로 만들어줘.   
+
+      < Dockerfile 내용 >
+      FROM nginx:alpine   -> 어떤 베이스(기반 이미지)로 시작할지
+      COPY . /usr/share/nginx/html -> 현재 폴더의 파일을 컨테이너 안 웹서버 폴더로 복사한다.
+      EXPOSE 80 -> 컨테이너가 80번 포트를 쓸 것이라고 표시
+
+      : nginx가 설치된 공간을 빌려서(FROM) -> 내 웹페이지 파일을 해당 공간의 정해진 자리에 복사하고(COPY) -> 사용자들이 들어올 문 번호를 안내한다. (EXPOSE)
