@@ -7,7 +7,7 @@
 
 ## 1. 필수 참고 문서
 - [AGENTS.md](AGENTS.md): 프로젝트 개요, 공통 규칙, 학습 진도, 파일 관리 규칙
-- [SKILLS.md](SKILLS.md): S1~S8 스킬 상세 정의, 스킬 매핑, 허용 기술 스택
+- [SKILLS.md](SKILLS.md): S1~S10 스킬 상세 정의, 스킬 매핑, 허용 기술 스택
 
 ---
 

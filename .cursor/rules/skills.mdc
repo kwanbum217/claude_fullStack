@@ -1,12 +1,12 @@
 ---
-description: 프로젝트 에이전트 스킬 규칙 및 가이드 (S1~S8)
+description: 프로젝트 에이전트 스킬 규칙 및 가이드 (S1~S10)
 globs: **/*
 alwaysApply: true
 ---
 
 # 프로젝트 에이전트 스킬 가이드
 
-Cursor 에이전트는 `AGENTS.md`와 `SKILLS.md`에 정의된 8가지 스킬(S1~S8) 규칙을 항상 준수합니다.
+Cursor 에이전트는 `AGENTS.md`와 `SKILLS.md`에 정의된 10가지 스킬(S1~S10) 규칙을 항상 준수합니다.
 
 ## 핵심 준수 사항
 1. **이모지 사용 금지**: 코드, 주석, 문서 등 모든 결과물에서 이모지를 사용하지 마세요.

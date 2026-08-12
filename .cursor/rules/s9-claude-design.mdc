@@ -1,0 +1,15 @@
+---
+description: Claude 디자인 시스템 적용 스킬 (S9). HTML/CSS 작성 및 UI 스타일 적용 시 자동 발동됩니다.
+globs: workspace/**/*.html, workspace/**/*.css
+alwaysApply: false
+---
+
+# Claude 디자인 시스템 적용 (S9)
+
+HTML 및 CSS 작성 시 DESIGN.md 기반의 디자인 토큰과 UI 규격을 적용합니다.
+
+## 핵심 적용 토큰
+- 색상: `--primary: #cc785c;`, `--canvas: #faf9f5;`, `--surface-card: #efe9de;`
+- 폰트: Display (`EB Garamond`), Body (`Inter`)
+- 뱃지: 코랄 뱃지(`var(--primary)`), 대문자, 둥근 캡슐 형태
+- 이모지(Emoji) 사용 절대 금지
