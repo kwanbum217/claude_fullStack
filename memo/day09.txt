@@ -1,0 +1,9 @@
+[ day07폴더 내에 존재하는 모든 파일을 GitHub에 업로드 프롬프트 ]
+- 먼저 GitHub에서 저장소(레파지토리)를 생성하고 경로를 복사하고, 아래의 프롬프트를 Claude에게 요청한다.
+
+day07폴더 전체를 git저장소를 만들고 github에 업로드하려고 한다.  아래 순서로 진행하라.
+
+1. git init을 실행해서 이 폴더를 git 저장소로 만들어줘.
+2. git status를 통해 현재 상태를 보여줘
+3. git add .  을 활용하여 전채 파일(index1.html, script1.js, style1.css)을 스테이징하고, 'day07 JavaScript 심화 - 미니 게시판 실습 업로드'라는 메세지로 커밋해줘.
+4. 커밋이 끝나면, github의 https://github.com/kwanbum217/day07-js-board.git 경로에 origin으로 연결하고 main브랜치로 push를 진행하라.
