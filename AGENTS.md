@@ -11,7 +11,7 @@
 | ---------- | ------------------------------------------------------- |
 | 프로젝트명 | **claude_fullStack** — 풀스택 웹 개발 학습 프로젝트     |
 | 학습 과정  | HTML → CSS → JavaScript → Node.js → React → DB(MongoDB/MySQL) |
-| 현재 진도  | **8회차** (HTML/CSS/JS 완료, Git & GitHub 기초 학습 중) |
+| 현재 진도  | **9회차** (HTML/CSS/JS, Git & GitHub 완료, Docker 기초 학습 중) |
 | 학습 방식  | 오프라인 수업 → 메모 정리 → 실습 코드 작성              |
 
 ---
@@ -31,7 +31,9 @@ claude_fullStack/
 │   ├── day05.txt        # 5회차 — CSS 응용, 레이아웃
 │   ├── day06.txt        # 6회차 — DOM 조작, fetch, HTTP/API, 브라우저-서버-DB 흐름
 │   ├── day07.txt        # 7회차 — JSON 이해, 기능 명세 정리, 미니 게시판 CRUD 실습
-│   └── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
+│   ├── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
+│   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
+│   └── day10.txt        # 10회차 — (작성 예정)
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 실습 코드
     ├── day01/               # 1회차 실습 (login1.html - 로그인 폼 실습)
@@ -51,7 +53,14 @@ claude_fullStack/
     ├── day05/               # 5회차 실습
     ├── day06/               # 6회차 실습
     ├── day07/               # 7회차 실습 (미니 게시판 index1.html, style1.css, script1.js)
-    └── day08/               # 8회차 실습 (git_practics)
+    ├── day08/               # 8회차 실습 (git_practics)
+    └── day09/               # 9회차 실습
+        └── board-docker/       # 미니 게시판 Docker 이미지화 실습
+            ├── Dockerfile      # nginx:alpine 기반 3줄 Dockerfile
+            ├── index1.html     # day07 게시판 파일 복사본
+            ├── script1.js
+            ├── style1.css
+            └── README.md
 ```
 
 ---
@@ -128,7 +137,7 @@ claude_fullStack/
 
 ### 4.4 학습 프로젝트 주의사항
 - 이 프로젝트는 **학습 목적**입니다. 복잡한 프레임워크 도입을 지양합니다.
-- 현재 진도에 맞는 기술만 사용합니다 (현재: HTML + CSS + JavaScript 기초/DOM/JSON/CRUD + Git & GitHub).
+- 현재 진도에 맞는 기술만 사용합니다 (현재: HTML + CSS + JavaScript 기초/DOM/JSON/CRUD + Git & GitHub + Docker 기초).
 - 코드 설명 시 **원리와 동작 방식**을 함께 설명합니다.
 - 정답을 바로 주기보다 **학습에 도움이 되는 힌트**를 우선 제공합니다.
 
@@ -147,7 +156,8 @@ claude_fullStack/
 | Day 06 | JS 기초·DOM 조작·fetch·API    | DOM 조작, fetch 비동기 통신, HTTP/API, 브라우저-서버-DB 흐름 |
 | Day 07 | JS 미니 게시판 CRUD·JSON      | JSON 개념, 기능 명세 프롬프트, 목록 출력, 게시글 추가/삭제, 부분 수정 |
 | Day 08 | Git & GitHub 기초             | Git 개념, git init/status/add/commit, GitHub 연동    |
-| Day 09 | *(진행 예정)*                 | —                                                    |
+| Day 09 | Docker 기초                   | Docker 개념, Docker Desktop 설치, 이미지/컨테이너, Dockerfile(FROM/COPY/EXPOSE), docker build/run/ps/stop |
+| Day 10 | *(진행 예정)*                 | —                                                    |
 
 ---
 
@@ -166,7 +176,7 @@ claude_fullStack/
 
 ```
 현재 ──────────────────────────────────────────── 향후
-HTML [완료] → CSS [완료] → JavaScript [진행중] → Node.js → React → DB
+HTML [완료] → CSS [완료] → JavaScript [완료] → Git & GitHub [완료] → Docker [진행중] → Node.js → React → DB
 ```
 
 새로운 기술 스택 도입 시 이 문서와 `SKILLS.md`를 함께 업데이트합니다.

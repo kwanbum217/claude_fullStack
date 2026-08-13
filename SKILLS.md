@@ -22,32 +22,36 @@
 
 ---
 
-## 1.5 OpenCode 자동 스킬 등록
+## 1.5 에이전트 자동 스킬 등록 경로
 
-`SKILLS.md`의 S1~S10 스킬은 OpenCode가 **자동 인식**하는 실제 스킬로도 등록되어 있습니다.
+`SKILLS.md`의 S1~S10 스킬은 각 에이전트가 **자동 인식**하는 실제 스킬 파일로도 등록되어 있습니다.
+세 경로 모두 동일한 S1~S10 스킬을 담고 있으며, 스킬 내용 변경 시 **세 경로를 함께 갱신**해야 합니다.
 
-```
-.opencode/skills/{스킬이름}/SKILL.md
-```
+| 대상 에이전트     | 등록 경로                          | 파일 형식   |
+| ----------------- | ---------------------------------- | ----------- |
+| OpenCode          | `.opencode/skills/{스킬이름}/SKILL.md` | SKILL.md    |
+| 범용 에이전트     | `.agents/skills/{스킬이름}/SKILL.md`   | SKILL.md    |
+| Cursor            | `.cursor/rules/s{번호}-{스킬이름}.mdc` | .mdc 규칙   |
 
-| 스킬 이름        | 파일 경로                               |
-| ---------------- | --------------------------------------- |
-| S1 메모 정리     | `.opencode/skills/memo-writing/SKILL.md`    |
-| S2 실습 코드 생성 | `.opencode/skills/practice-code/SKILL.md`   |
-| S3 코드 리뷰      | `.opencode/skills/code-review/SKILL.md`     |
-| S4 개념 설명 Q&A  | `.opencode/skills/concept-qna/SKILL.md`     |
-| S5 프로젝트 관리  | `.opencode/skills/project-manage/SKILL.md`  |
-| S6 리소스 생성    | `.opencode/skills/resource-create/SKILL.md` |
-| S7 디버깅         | `.opencode/skills/debugging/SKILL.md`       |
-| S8 코드 리팩토링  | `.opencode/skills/refactoring/SKILL.md`     |
-| S9 Claude 디자인  | `.opencode/skills/claude-design/SKILL.md`   |
-| S10 에이전트 동기화 | `.opencode/skills/skill-sync/SKILL.md`     |
+| 스킬 이름        | 스킬 폴더명(SKILL.md)  | Cursor 규칙 파일             |
+| ---------------- | ---------------------- | ---------------------------- |
+| S1 메모 정리     | `memo-writing/`        | `s1-memo-writing.mdc`        |
+| S2 실습 코드 생성 | `practice-code/`       | `s2-practice-code.mdc`       |
+| S3 코드 리뷰      | `code-review/`         | `s3-code-review.mdc`         |
+| S4 개념 설명 Q&A  | `concept-qna/`         | `s4-concept-qna.mdc`         |
+| S5 프로젝트 관리  | `project-manage/`      | `s5-project-manage.mdc`      |
+| S6 리소스 생성    | `resource-create/`     | `s6-resource-create.mdc`     |
+| S7 디버깅         | `debugging/`           | `s7-debugging.mdc`           |
+| S8 코드 리팩토링  | `refactoring/`         | `s8-refactoring.mdc`         |
+| S9 Claude 디자인  | `claude-design/`       | `s9-claude-design.mdc`       |
+| S10 에이전트 동기화 | `skill-sync/`        | `s10-skill-sync.mdc`         |
 
 **동작 방식**:
-- 각 스킬의 `description`에 트리거 키워드를 정의했습니다. 해당 작업이 발생하면 OpenCode가 자동으로 스킬을 로드합니다.
-- OpenCode는 `.opencode/skills/` 폴더를 스캔하여 `**/SKILL.md` 파일을 자동 인식합니다.
+- 각 스킬의 `description`에 트리거 키워드를 정의했습니다. 해당 작업이 발생하면 에이전트가 자동으로 스킬을 로드합니다.
+- OpenCode는 `.opencode/skills/`, 범용 에이전트는 `.agents/skills/` 폴더를 스캔하여 `**/SKILL.md` 파일을 자동 인식합니다.
+- Cursor는 `.cursor/rules/*.mdc`를 자동 적용하며, `skills.mdc`가 공통 규칙(진도 제한 포함)을 담당합니다.
 - 별도 설정(`opencode.json`) 없이 기본 경로라 바로 동작합니다.
-- **주의**: 새 스킬/수정 사항은 OpenCode 재시작 후 적용됩니다.
+- **주의**: 새 스킬/수정 사항은 에이전트 재시작 후 적용됩니다.
 
 ---
 
@@ -122,6 +126,7 @@
 **주의사항**:
 - 현재 학습 진도를 확인 → `memo/` 폴더의 최신 메모 참고
 - JavaScript는 현재 기초(DOM 조작, fetch)까지 학습 진행되었으므로 해당 개념 사용 가능 (Node.js/React 등 미학습 프레임워크는 사용 금지)
+- Docker 기초까지 학습했으므로 정적 웹페이지용 `Dockerfile`(FROM/COPY/EXPOSE) 작성 가능
 - 외부 CSS/JS 사용 시 필요에 따라 해당 폴더 내 파일 함께 생성
 - 한국어 주석으로 코드 설명 포함
 
@@ -265,7 +270,7 @@
 1. `memo/` 폴더를 검색하여 최신 회차 노트를 파악하고 핵심 기술 스택을 추출합니다.
 2. `AGENTS.md` (현재 진도, 디렉토리 구조, 학습 진도 표)를 업데이트합니다.
 3. `SKILLS.md` (스킬 표, 학습 스택 표, 로드맵)를 업데이트합니다.
-4. 에이전트 개별 지침서 (`CLAUDE.md`, `codex.md`, `.cursorrules`, `.cursor/rules/skills.mdc`, `.opencode/skills/`)를 업데이트합니다.
+4. 에이전트 개별 지침서 (`CLAUDE.md`, `codex.md`, `README.md`, `.cursorrules`, `.cursor/rules/`, `.opencode/skills/`, `.agents/skills/`)를 업데이트합니다.
 5. 문서 내 이모지(Emoji) 포함 여부를 검증하고 전면 배제합니다.
 6. 동기화 결과를 사용자에게 요약 보고합니다.
 
@@ -297,7 +302,8 @@
 | CSS3 기초     | 완료   | O 사용 가능      |
 | CSS Flexbox   | 완료   | O 사용 가능      |
 | JavaScript    | 완료   | O 사용 가능 (기초, DOM 조작, fetch/API, JSON, 미니 게시판 CRUD) |
-| Git & GitHub  | 진행중 | O 사용 가능 (git init, status, add, commit, push, remote 연결) |
+| Git & GitHub  | 완료   | O 사용 가능 (git init, status, add, commit, push, remote 연결) |
+| Docker 기초   | 진행중 | O 사용 가능 (이미지/컨테이너 개념, Dockerfile FROM/COPY/EXPOSE, docker build/run/ps/stop) |
 | Node.js       | 미학습 | X 사용 불가      |
 | React         | 미학습 | X 사용 불가      |
 | Database      | 미학습 | X 사용 불가      |
@@ -314,7 +320,8 @@ Phase 1 (현재)          Phase 2                 Phase 3
 [완료] HTML 기초        JavaScript 심화          Node.js
 [완료] CSS 기초         이벤트 처리              React
 [완료] JS DOM·JSON·CRUD  비동기(async/await)      MongoDB/MySQL
-[진행] Git & GitHub 기초 배포                     
+[완료] Git & GitHub 기초 배포
+[진행] Docker 기초
 ```
 
 ---
@@ -328,3 +335,4 @@ Phase 1 (현재)          Phase 2                 Phase 3
 | 실습 CSS (외부)  | `{주제}.css` 또는 `style.css` | `standard_html.css`           |
 | 리소스 이미지    | `{주제}_{설명}.{확장자}`      | `boxmodel_diagram.png`        |
 | 종합 실습        | `{주제}.html`                 | `profile.html`                |
+| Docker 설정      | `Dockerfile` (확장자 없음)    | `workspace/day09/board-docker/Dockerfile` |

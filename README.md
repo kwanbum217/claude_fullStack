@@ -10,8 +10,8 @@
 | --- | --- |
 | 프로젝트명 | **claude_fullStack** |
 | 학습 목표 | HTML5 $\rightarrow$ CSS3 $\rightarrow$ JavaScript $\rightarrow$ Node.js $\rightarrow$ React $\rightarrow$ Database(MongoDB/MySQL) 풀스택 개발 역량 강화 |
-| 현재 진도 | **8회차** (HTML, CSS, JavaScript 기초/DOM/JSON/CRUD 및 Git & GitHub 기초 학습 완료) |
-| 개발 환경 | VS Code, Chrome Browser, Node.js, Git, GitHub |
+| 현재 진도 | **9회차** (HTML, CSS, JavaScript 기초/DOM/JSON/CRUD, Git & GitHub 완료 / Docker 기초 학습 중) |
+| 개발 환경 | VS Code, Chrome Browser, Node.js, Git, GitHub, Docker Desktop |
 | 소통/주석 | 한국어 (기술 용어 영어 원문 병기) |
 
 ---
@@ -26,7 +26,9 @@ claude_fullStack/
 ├── CLAUDE.md            # Anthropic Claude 전용 지침서
 ├── codex.md             # OpenAI Codex 전용 지침서
 ├── .cursorrules         # Cursor IDE 전용 지침서
-├── .opencode/           # OpenCode 스킬 및 설정
+├── .opencode/           # OpenCode 스킬 (S1~S10 SKILL.md)
+├── .agents/             # 범용 에이전트 스킬 (S1~S10 SKILL.md)
+├── .cursor/rules/       # Cursor 스킬 규칙 (s1~s10 .mdc)
 ├── memo/                # 회차별 수업 메모 (일차별 학습 노트)
 │   ├── ot.txt           # OT — 과정 소개, 개발환경 세팅
 │   ├── day01.txt        # 1회차 — 웹 개요, HTTP, HTML 기초 및 태그
@@ -36,7 +38,9 @@ claude_fullStack/
 │   ├── day05.txt        # 5회차 — CSS 레이아웃, JS 변수 및 함수
 │   ├── day06.txt        # 6회차 — DOM 조작, fetch 비동기 통신, HTTP/API 흐름
 │   ├── day07.txt        # 7회차 — JSON 이해, 기능 명세 프롬프트, 미니 게시판 CRUD
-│   └── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
+│   ├── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
+│   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
+│   └── day10.txt        # 10회차 — (작성 예정)
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 회차별 실습 코드
     ├── day01/           # 1회차 실습 (login1.html)
@@ -46,7 +50,8 @@ claude_fullStack/
     ├── day05/           # 5회차 실습 (JS 변수/함수, DOM 기본)
     ├── day06/           # 6회차 실습 (fetch API 연동, DOM 조작)
     ├── day07/           # 7회차 실습 (미니 게시판 CRUD — index1.html, style1.css, script1.js)
-    └── day08/           # 8회차 실습 (Git 저장소 실습 — git_practics)
+    ├── day08/           # 8회차 실습 (Git 저장소 실습 — git_practics)
+    └── day09/           # 9회차 실습 (board-docker — Dockerfile 작성 및 이미지화)
 ```
 
 ---
@@ -64,6 +69,7 @@ claude_fullStack/
 | **Day 06** | JS DOM 조작 & fetch API | DOM 조작, fetch 비동기 통신, HTTP/API 흐름 | [workspace/day06](workspace/day06) |
 | **Day 07** | JS 미니 게시판 CRUD & JSON | JSON 개념, 기능 명세 프롬프트, 목록 출력, 게시글 추가/삭제 | [workspace/day07](workspace/day07) |
 | **Day 08** | Git & GitHub 기초 | Git 개념, git init, status, add, commit, GitHub 연동 및 push | [workspace/day08](workspace/day08) |
+| **Day 09** | Docker 기초 | Docker 개념, Docker Desktop 설치, 이미지/컨테이너, Dockerfile(FROM/COPY/EXPOSE), docker build/run/ps/stop | [workspace/day09](workspace/day09) |
 
 ---
 
@@ -93,7 +99,7 @@ claude_fullStack/
 1. **언어 및 주석**: 모든 소통, 문서 작성, 코드 주석은 **한국어**를 사용하며 기술 용어는 영어 원문을 병기합니다.
 2. **이모지(Emoji) 사용 금지**: 코드, 주석, Commit 메시지, Markdown 문서 등 **모든 산출물에서 이모지 사용을 엄격히 금지**합니다.
 3. **들여쓰기 및 스타일**: HTML/CSS/JS 코드는 **공백 2칸(2 spaces)** 들여쓰기를 준수하며, 파일명은 **영어 소문자 + 언더스코어(_)** 방식을 사용합니다.
-4. **진도 제한 준수**: 아직 배우지 않은 기술 스택(Node.js, React, DB 등)은 사전 도입하지 않으며 현재 학습 진도 이내의 기술만 사용합니다.
+4. **진도 제한 준수**: 아직 배우지 않은 기술 스택(Node.js, React, DB 등)은 사전 도입하지 않으며 현재 학습 진도 이내의 기술(HTML/CSS/JS, Git & GitHub, Docker 기초)만 사용합니다.
 
 ---
 
