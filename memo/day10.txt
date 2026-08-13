@@ -1,17 +1,20 @@
 [ 10회차 진도 ]
-1. Express 
-  : Express는 Node.js 위에서 동작하는 웹 서버 프레임워크로, 브라우저의 요청을 받아 응답을 돌려주는 백엔드 프로그램을 쉽게 만들 수 있게 해준다.
-  : 3 ~ 9회차 까지의 내용은 전부 '프론트엔드'와 관련이 있는 내용으로, HTML/CSS/JS 파일들 그대로 브라우저가 읽어서 화면을 그리는 방식이었다. 하지만 실제 서비스에서는 '로그인 확인', '게시글 저장 및 조회', '데이터베이스 조회'같은 처리가 필요하다. 이런 처리는 브라우저(프론트엔드)가 아니라 별도의 서버 프로그램(백엔드)이 담당해야 하며, 그 서버 프로그램을 Node.js로 쉽게 만들 수 있게 도와주는 도구가 Express이다.
-  : Express사용 시 Node.js가 설치되어 있어야 한다.
-    - cmd창에서 node --version과 npm --version이 실행되는지 확인한다.
+1. Express 프레임워크 초기화 및 package.json 학습
+  : npm init -y 명령어를 실행하여 express-board 프로젝트 초기화 및 package.json 생성
+  : package.json은 프로젝트의 이름, 버전, 실행 스크립트, 설치된 의존성 패키지 정보 관리를 담당하는 설정 파일이다.
 
-2. 프로젝트 초기화와 package.json
-  : package.json은 해당 프로젝트가 어떤 이름인지, 어떤 외부 패키지를 필요로 하는지를 적어두는 설정 파일이다.
-  : npm init(initiallize, 초기화하다) 명령어를 실행하면 이 package.json 파일이 자동으로 만들어진다.
-  : 위와 같이 package.json 파일을 생성하고, npm install express를 실행한다면, 방금 만든 package.json에 '이 프로젝트를 express가 필요하다'는 내용이 자동으로 기록되고, 실제 express 코드는 node_modules라는 폴더안에 다운로드된다.
-    ex) package.json은 요리 레시피에 적힌 '재료(package) 목록'과 같다. 목록에 'express'라고 적혀 있다면, 나중에 이 프로젝트를 다른 컴퓨터로 옮겨도 npm install 한번으로 목록에 적힌 재료를 다시 그대로 준비할 수 있다.
+2. Express 패키지 설치
+  : npm install express 명령어를 실행하여 express 프레임워크 패키지 설치
+  : 설치 완료 시 package.json의 dependencies 항목에 express 패키지 정보가 자동 기록됨
 
-    [ 프로젝트 초기화와 package.json 생성 실습 프롬프트 ]
-    day10/express-board 폴더에서 npm init -y 명령어를 실행해서 package.json 파일을 만들어줘. 그 다음 npm install express 명령어로 express를 설치해줘. 설치가 끝나면 package.json 파일 내용을 보여 주고, 어느 부분에 express가 기록되었는지 짚어줘.
+3. Express 웹 서버 구축 (server.js)
+  : require('express')로 express 모듈을 불러와 app 객체 생성
+  : app.listen(3000, ...)을 통해 3000번 포트에서 클라이언트 요청을 대기하는 웹 서버 가동
 
-      - npm init -y : -y 옵션은 '질문 없이 기본값으로 적용하여 생성하라' 는 것을 의미한다.
+4. 라우팅 (Routing) 및 응답 방식
+  : app.get('/', ...) : 루트 접속 시 HTML/텍스트 또는 파일 서빙 처리
+  : app.get('/api/hello', ...) : res.json()을 활용하여 { message: '안녕하세요' } 형태의 JSON 데이터 응답 처리
+
+5. 정적 파일 서빙 (express.static)
+  : app.use(express.static('public')) 미들웨어를 활용하여 public 폴더 안의 파일들을 정적으로 웹에 제공
+  : day07 미니 게시판(index1.html, style1.css, script1.js)을 public 폴더로 연결하여 http://localhost:3000 접속 시 미니 게시판 연동 완료

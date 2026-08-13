@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미니 게시판</title>
+  <!-- Google Fonts: EB Garamond (Display) & Inter (Body) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <main class="container">
+    <!-- 상단 뱃지 및 헤더 영역 -->
+    <header class="board-header">
+      <span class="badge">BOARD APP</span>
+      <h1>미니 게시판</h1>
+      <p class="subtitle">새로운 생각과 의견을 자유롭게 작성해보세요.</p>
+    </header>
+
+    <!-- 게시글 입력 폼 영역 -->
+    <section class="input-card">
+      <div class="input-group">
+        <input 
+          type="text" 
+          id="title-input" 
+          class="title-input" 
+          placeholder="게시글 제목을 입력하세요..."
+          autocomplete="off"
+        >
+        <button type="button" id="add-btn" class="add-btn">추가</button>
+      </div>
+    </section>
+
+    <!-- 게시글 목록 영역 -->
+    <section class="list-section">
+      <h2 class="section-title">게시글 목록</h2>
+      <ul id="board-list" class="board-list">
+        <!-- script1.js의 renderPosts() 함수에 의해 동적으로 li 태그가 생성됩니다. -->
+      </ul>
+    </section>
+  </main>
+
+  <script src="script1.js"></script>
+</body>
+</html>
