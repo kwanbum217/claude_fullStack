@@ -303,8 +303,8 @@
 | CSS Flexbox   | 완료   | O 사용 가능      |
 | JavaScript    | 완료   | O 사용 가능 (기초, DOM 조작, fetch/API, JSON, 미니 게시판 CRUD) |
 | Git & GitHub  | 완료   | O 사용 가능 (git init, status, add, commit, push, remote 연결) |
-| Docker 기초   | 진행중 | O 사용 가능 (이미지/컨테이너 개념, Dockerfile FROM/COPY/EXPOSE, docker build/run/ps/stop) |
-| Node.js       | 미학습 | X 사용 불가      |
+| Docker 기초   | 완료   | O 사용 가능 (이미지/컨테이너 개념, Dockerfile FROM/COPY/EXPOSE, docker build/run/ps/stop) |
+| Node.js Express| 진행중 | O 사용 가능 (npm init -y, package.json 프로젝트 초기화, express 패키지 설치) |
 | React         | 미학습 | X 사용 불가      |
 | Database      | 미학습 | X 사용 불가      |
 
@@ -317,11 +317,11 @@
 ```
 Phase 1 (현재)          Phase 2                 Phase 3
 ──────────────         ──────────────          ──────────────
-[완료] HTML 기초        JavaScript 심화          Node.js
+[완료] HTML 기초        JavaScript 심화          [진행] Node.js Express
 [완료] CSS 기초         이벤트 처리              React
 [완료] JS DOM·JSON·CRUD  비동기(async/await)      MongoDB/MySQL
 [완료] Git & GitHub 기초 배포
-[진행] Docker 기초
+[완료] Docker 기초
 ```
 
 ---
