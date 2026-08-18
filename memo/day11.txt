@@ -1,0 +1,60 @@
+[ 11회차 진도 ]
+*** 10회차에서 만든 Express 서버는 데이터를 변수(메모리)에만 저장해서, 서버를 끄거나 웹을 새로고침하면 데이터가 사라졌다. 오늘은 데이터를 파일로 "영구 저장"하는 도구인 Prisma를 배운다.
+
+1. ORM, Prisma란 무엇인가
+  : ORM(Object-Relational Mapping)이란, 객체 지향 프로그래밍 언어(Java, Java Script, Python 등)의 객체와 관계형 데이터베이스(RDB)의 테이블(표)을 자동으로 매핑(연결)해주는 기술을 의미한다.
+  : ORM은 SQL쿼리를 직접 작성하는 대신, 프로그래밍 언어의 메서드(함수)를 사용해 데이터베이스를 조작할 수 있게 한다.
+  : ORM은 데이터베이스 종류(MySQL 등)가 바뀌어도 코드의 큰 수정 없이 유연하게 대처할 수 있게 한다.
+  : Prisma는 위의 ORM의 한 종류이며, Node.js 및 TypeScrpit환경에서 가장 주목받고 있는 차세대 ORM중 하나이다.
+  : Prisma를 통해 오늘 배울 '설치 -> 설계 -> 반영 -> 연결 -> 조작 -> 확인'등 6단계를 전부 도와준다.
+
+    [ 프로젝트 초기화 + Prisma 설치 실습 프롬프트 ]
+    workspace\day11 경로에 npm init -y로 package.json을 만들고, prisma@6과 @prisma/client@6 설치한 다음, npx prisma init --datasource-provider sqlite로 SQLite 기반 Prisma 초기 설정을 만들어줘.
+
+    - Prisma Client : 타입 안전성을 보장하는 자동 생성 데이터 베이스 클라이언트로, 코드 작성 시 오타나 타입 오류를 실시간으로 잡아준다.
+
+2. schema.prisma / .env 확인 - 설치 결과물 확인
+  : schema.prisma는 '어떤 데이터가 필요한지'를 적는 설계도 파일을 의미한다.
+  : .env는 '그 데이터가 실제로 어디에 저장되는지' 위치를 적는 파일을 의미한다.
+  : 위의 두 파일 모두 1번 실습 프롬프트를 통해 자동으로 만들어진다.
+
+3. Model 정의 - 설계, 데이터 모양 정하기
+  : Model은 '특정 정보를 가진 데이터를 저장하겠다'는 설계 선언이며, model 하나가 나중에 실제 데이터베이스의 테이블(표) 하나가 된다.
+  : model은 엑셀 시트 하나, 그 안의 항목들은 열(컬럼), 우리가 저장할 하나하나의 데이터를 행(로우)으로 지정한다.
+
+    [ model 정의 실습 프롬프트 ]
+    schema.prisma에 아래 필드를 가진 Todo model을 추가해줘.
+    - id : 자동 증가 정수, 기본키
+    - title : 문자열, 필수
+    - isDone : 참/거짓, 기본값 false
+    - createdAt : 생성 시잔, 자동 기록
+
+4. Migration - 반영, 설계도(schema.prisma)를 실제로 만들기
+  : Migration이란 3번에서 그린 설계도(schema.prisma)를 실제 데이터베이스에 '이 모양대로 진짜 표를 만들어줘'라고 반영하는 과정이다.
+  : schema.prisma를 통해 설계도만 그려놓은 상황은 공사를 진행하지 않은 건문과 똑같다. 따라서 Migration을 통해 공사를 진행하게 한다.
+  : 3번 과정과 4번 과정은 항상 세트로 진행한다. 반영을 하지 않으면 아무리 설계를 잘해도 실제 데이터베이스테 변화가 없다.
+
+    [ Migration 실행 실습 프롬프트 ]
+    npx prisma migrate dev --name init 명령어로 Todo model을 실제 데이터베이스 반영해줘. 
+
+5. Prisma Client 연결 + Create, Read - 연결, 데이터 조작(생성, 조회)
+  : Prisma Client는 타입 안전성을 보장하는 자동 생성 데이터베이스 클라이언트로, 코드 작성 시 오타나 타입 오류를 실시간으로 잡아준다.
+  : Prisma Client는 4번에서 자동 생성된 데이터베이스를 다루는 코드 도구이다.
+  : Prisma Client를 통해 CRUD 즉, 데이터의 생성(Create), 조회(Read), 수정(Update), 삭제(Delete)를 진행할 계획이다.
+
+    [ Prisma Client 연결 및  Create, Read 실습 프롬프트 ]
+    index.js를 만들어서 Prisma Client를 연결하고, main 함수 안에서
+    1) title이 'Prisma 공부하기' 인 Todo 생성 후 출력
+    2) 전체 Todo 목록 조회 후 출력
+    을 실행해줘. 그리고 node index.js로 실행해줘.
+
+6. Update, Delete - 데이터 조작(수정, 삭제)
+  : 데이터를 수정하거나 삭제할 시에는 '어떤 데이터인지를'를 정확히 콕 집어야 하므로, 3번에서 정한 id(기본 키, pk)를 사용한다.
+
+    [ Update, Delete 실습 프롬프트 ]
+    index.js에 이어서
+    1) id가 1번인 Todo의 isDone을 true로 수정 후 출력
+    2) 전체 목록 재조회 후 출력
+    3) id가 1번인 Todo 삭제 후 출력
+    4) 전체 목록 재조회 후 출력
+    을 추가해줘.
