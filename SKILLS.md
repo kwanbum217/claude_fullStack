@@ -125,8 +125,9 @@
 
 **주의사항**:
 - 현재 학습 진도를 확인 → `memo/` 폴더의 최신 메모 참고
-- JavaScript는 현재 기초(DOM 조작, fetch)까지 학습 진행되었으므로 해당 개념 사용 가능 (Node.js/React 등 미학습 프레임워크는 사용 금지)
+- JavaScript는 현재 기초(DOM 조작, fetch)까지 학습 진행되었으므로 해당 개념 사용 가능 (React 등 미학습 프레임워크는 사용 금지)
 - Docker 기초까지 학습했으므로 정적 웹페이지용 `Dockerfile`(FROM/COPY/EXPOSE) 작성 가능
+- Node.js/Express 및 Prisma(ORM, SQLite)까지 학습했으므로 서버 코드·DB 연동 실습 가능
 - 외부 CSS/JS 사용 시 필요에 따라 해당 폴더 내 파일 함께 생성
 - 한국어 주석으로 코드 설명 포함
 
@@ -305,8 +306,10 @@
 | Git & GitHub  | 완료   | O 사용 가능 (git init, status, add, commit, push, remote 연결) |
 | Docker 기초   | 완료   | O 사용 가능 (이미지/컨테이너 개념, Dockerfile FROM/COPY/EXPOSE, docker build/run/ps/stop) |
 | Node.js Express| 진행중 | O 사용 가능 (npm init -y, package.json 프로젝트 초기화, express 패키지 설치) |
+| Prisma (ORM)   | 진행중 | O 사용 가능 (prisma@6, @prisma/client@6 설치, npx prisma init --datasource-provider sqlite, schema.prisma Model 정의, prisma migrate dev, Prisma Client CRUD) |
+| SQLite         | 진행중 | O 사용 가능 (Prisma 연동 SQLite 파일 DB, dev.db) |
 | React         | 미학습 | X 사용 불가      |
-| Database      | 미학습 | X 사용 불가      |
+| MongoDB/MySQL  | 미학습 | X 사용 불가      |
 
 > **참고**: 학습 진도가 변경되면 이 테이블을 업데이트합니다.
 
@@ -318,10 +321,12 @@
 Phase 1 (현재)          Phase 2                 Phase 3
 ──────────────         ──────────────          ──────────────
 [완료] HTML 기초        JavaScript 심화          [진행] Node.js Express
-[완료] CSS 기초         이벤트 처리              React
-[완료] JS DOM·JSON·CRUD  비동기(async/await)      MongoDB/MySQL
-[완료] Git & GitHub 기초 배포
+[완료] CSS 기초         이벤트 처리              [진행] Prisma & SQLite (ORM)
+[완료] JS DOM·JSON·CRUD  비동기(async/await)      React
+[완료] Git & GitHub 기초 배포                    MongoDB/MySQL
 [완료] Docker 기초
+[진행] Node.js Express
+[진행] Prisma & SQLite
 ```
 
 ---
@@ -336,3 +341,4 @@ Phase 1 (현재)          Phase 2                 Phase 3
 | 리소스 이미지    | `{주제}_{설명}.{확장자}`      | `boxmodel_diagram.png`        |
 | 종합 실습        | `{주제}.html`                 | `profile.html`                |
 | Docker 설정      | `Dockerfile` (확장자 없음)    | `workspace/day09/board-docker/Dockerfile` |
+| Prisma 설정      | `schema.prisma`, `.env`, `prisma.config.ts` | `workspace/day11/prisma/schema.prisma` |

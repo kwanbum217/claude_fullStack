@@ -11,7 +11,7 @@ description: 실습 코드 생성 스킬. 사용자가 학습 주제에 맞는 H
 
 - 위치: `workspace/day{회차번호}/` 폴더
 - 파일명: 영어 소문자 + 언더스코어 (예: box_practics.html)
-- 현재 진도 이내의 기술만 사용 (HTML + CSS + JavaScript 기초/DOM/fetch/JSON/CRUD, Git & GitHub, Docker 기초)
+- 현재 진도 이내의 기술만 사용 (HTML + CSS + JavaScript 기초/DOM/fetch/JSON/CRUD, Git & GitHub, Docker 기초, Node.js/Express 기초, Prisma ORM/SQLite)
 
 ## HTML 파일 템플릿
 
@@ -32,7 +32,8 @@ description: 실습 코드 생성 스킬. 사용자가 학습 주제에 맞는 H
 ## 주의사항
 
 - 현재 학습 진도를 확인 → `memo/` 폴더의 최신 메모를 참고합니다.
-- JavaScript는 기초(DOM 조작, fetch/API, JSON, CRUD)까지 학습했으므로 사용 가능합니다. (Node.js, React, DB 등 미학습 프레임워크/기술은 사용 금지)
+- JavaScript는 기초(DOM 조작, fetch/API, JSON, CRUD)까지 학습했으므로 사용 가능합니다.
+- Node.js/Express 기초와 Prisma ORM/SQLite까지 학습했으므로 서버 코드와 DB 연동 실습이 가능합니다. (React, MongoDB/MySQL 등 미학습 프레임워크/기술은 사용 금지)
 - Docker 기초까지 학습했으므로 정적 웹페이지용 `Dockerfile`(FROM / COPY / EXPOSE) 작성이 가능합니다.
 - 외부 CSS/JS 사용 시 필요에 따라 해당 폴더 내 파일 함께 생성합니다.
 - 한국어 주석으로 코드 설명을 포함합니다.

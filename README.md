@@ -9,8 +9,8 @@
 | 항목 | 내용 |
 | --- | --- |
 | 프로젝트명 | **claude_fullStack** |
-| 학습 목표 | HTML5 $\rightarrow$ CSS3 $\rightarrow$ JavaScript $\rightarrow$ Node.js $\rightarrow$ React $\rightarrow$ Database(MongoDB/MySQL) 풀스택 개발 역량 강화 |
-| 현재 진도 | **9회차** (HTML, CSS, JavaScript 기초/DOM/JSON/CRUD, Git & GitHub 완료 / Docker 기초 학습 중) |
+| 학습 목표 | HTML5 $\rightarrow$ CSS3 $\rightarrow$ JavaScript $\rightarrow$ Node.js $\rightarrow$ Database(Prisma/SQLite) $\rightarrow$ React $\rightarrow$ Database(MongoDB/MySQL) 풀스택 개발 역량 강화 |
+| 현재 진도 | **11회차** (HTML, CSS, JavaScript 기초/DOM/JSON/CRUD, Git & GitHub, Docker 기초, Node.js/Express 기초 완료 / Prisma ORM & SQLite 학습 중) |
 | 개발 환경 | VS Code, Chrome Browser, Node.js, Git, GitHub, Docker Desktop |
 | 소통/주석 | 한국어 (기술 용어 영어 원문 병기) |
 
@@ -40,7 +40,8 @@ claude_fullStack/
 │   ├── day07.txt        # 7회차 — JSON 이해, 기능 명세 프롬프트, 미니 게시판 CRUD
 │   ├── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
 │   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
-│   └── day10.txt        # 10회차 — (작성 예정)
+│   ├── day10.txt        # 10회차 — Express 개념, 프로젝트 초기화(npm init), package.json, express 설치
+│   └── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 회차별 실습 코드
     ├── day01/           # 1회차 실습 (login1.html)
@@ -51,7 +52,9 @@ claude_fullStack/
     ├── day06/           # 6회차 실습 (fetch API 연동, DOM 조작)
     ├── day07/           # 7회차 실습 (미니 게시판 CRUD — index1.html, style1.css, script1.js)
     ├── day08/           # 8회차 실습 (Git 저장소 실습 — git_practics)
-    └── day09/           # 9회차 실습 (board-docker — Dockerfile 작성 및 이미지화)
+    ├── day09/           # 9회차 실습 (board-docker — Dockerfile 작성 및 이미지화)
+    ├── day10/           # 10회차 실습 (express-board — Express 게시판 서버, package.json)
+    └── day11/           # 11회차 실습 (Prisma + SQLite Todo CRUD — index.js, prisma/schema.prisma, dev.db)
 ```
 
 ---
@@ -70,6 +73,8 @@ claude_fullStack/
 | **Day 07** | JS 미니 게시판 CRUD & JSON | JSON 개념, 기능 명세 프롬프트, 목록 출력, 게시글 추가/삭제 | [workspace/day07](workspace/day07) |
 | **Day 08** | Git & GitHub 기초 | Git 개념, git init, status, add, commit, GitHub 연동 및 push | [workspace/day08](workspace/day08) |
 | **Day 09** | Docker 기초 | Docker 개념, Docker Desktop 설치, 이미지/컨테이너, Dockerfile(FROM/COPY/EXPOSE), docker build/run/ps/stop | [workspace/day09](workspace/day09) |
+| **Day 10** | Node.js Express & package.json | Express 프레임워크 개념, npm init -y, package.json 생성, express 패키지 설치 | [workspace/day10](workspace/day10) |
+| **Day 11** | Prisma ORM & SQLite | ORM 개념, Prisma 설치(prisma@6, @prisma/client@6), schema.prisma Model 정의, Migration(prisma migrate dev), Prisma Client CRUD | [workspace/day11](workspace/day11) |
 
 ---
 
@@ -99,7 +104,7 @@ claude_fullStack/
 1. **언어 및 주석**: 모든 소통, 문서 작성, 코드 주석은 **한국어**를 사용하며 기술 용어는 영어 원문을 병기합니다.
 2. **이모지(Emoji) 사용 금지**: 코드, 주석, Commit 메시지, Markdown 문서 등 **모든 산출물에서 이모지 사용을 엄격히 금지**합니다.
 3. **들여쓰기 및 스타일**: HTML/CSS/JS 코드는 **공백 2칸(2 spaces)** 들여쓰기를 준수하며, 파일명은 **영어 소문자 + 언더스코어(_)** 방식을 사용합니다.
-4. **진도 제한 준수**: 아직 배우지 않은 기술 스택(Node.js, React, DB 등)은 사전 도입하지 않으며 현재 학습 진도 이내의 기술(HTML/CSS/JS, Git & GitHub, Docker 기초)만 사용합니다.
+4. **진도 제한 준수**: 아직 배우지 않은 기술 스택(React, MongoDB/MySQL 등)은 사전 도입하지 않으며 현재 학습 진도 이내의 기술(HTML/CSS/JS, Git & GitHub, Docker 기초, Node.js/Express 기초, Prisma ORM/SQLite)만 사용합니다.
 
 ---
 

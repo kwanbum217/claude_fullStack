@@ -11,7 +11,7 @@ alwaysApply: false
 ## 작업 규칙
 - 위치: `workspace/day{회차번호}/` 폴더
 - 파일명: 영어 소문자 + 언더스코어 (예: box_practics.html)
-- 현재 진도 이내의 기술만 사용 (HTML + CSS + JavaScript 기초/DOM/fetch/JSON/CRUD, Git & GitHub, Docker 기초)
+- 현재 진도 이내의 기술만 사용 (HTML + CSS + JavaScript 기초/DOM/fetch/JSON/CRUD, Git & GitHub, Docker 기초, Node.js/Express 기초, Prisma ORM/SQLite)
 
 ## HTML 템플릿
 ```html
@@ -30,7 +30,7 @@ alwaysApply: false
 
 ## 주의사항
 - 현재 학습 진도를 `memo/` 최신 노트로 확인합니다.
-- Node.js, React, DB 등 미학습 기술 사용 금지. (JavaScript 기초/DOM/fetch, Docker 기초 Dockerfile은 사용 가능)
+- React, MongoDB/MySQL 등 미학습 기술 사용 금지. (JavaScript 기초/DOM/fetch, Docker 기초 Dockerfile, Node.js/Express 기초, Prisma ORM/SQLite는 사용 가능)
 - 외부 CSS 사용 시 동일 폴더 내 `.css` 생성.
 - 한국어 주석 포함, 공백 2칸(2 spaces) 들여쓰기, 이모지(Emoji) 사용 금지.
 

@@ -10,8 +10,8 @@
 | 항목       | 내용                                                    |
 | ---------- | ------------------------------------------------------- |
 | 프로젝트명 | **claude_fullStack** — 풀스택 웹 개발 학습 프로젝트     |
-| 학습 과정  | HTML → CSS → JavaScript → Node.js → React → DB(MongoDB/MySQL) |
-| 현재 진도  | **10회차** (Node.js Express 기초, 프로젝트 초기화 및 package.json 학습 중) |
+| 학습 과정  | HTML → CSS → JavaScript → Node.js → DB(Prisma/SQLite) → React → DB(MongoDB/MySQL) |
+| 현재 진도  | **11회차** (Prisma ORM 기초, SQLite 연동 CRUD 학습 중) |
 | 학습 방식  | 오프라인 수업 → 메모 정리 → 실습 코드 작성              |
 
 ---
@@ -34,6 +34,7 @@ claude_fullStack/
 │   ├── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
 │   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
 │   └── day10.txt        # 10회차 — Express 개념, 프로젝트 초기화(npm init), package.json, express 설치
+│   └── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 실습 코드
     ├── day01/               # 1회차 실습 (login1.html - 로그인 폼 실습)
@@ -55,8 +56,15 @@ claude_fullStack/
     ├── day07/               # 7회차 실습 (미니 게시판 index1.html, style1.css, script1.js)
     ├── day08/               # 8회차 실습 (git_practics)
     ├── day09/               # 9회차 실습 (board-docker)
-    └── day10/               # 10회차 실습
-        └── express-board/   # Express 게시판 서버 실습 프로젝트 (package.json, node_modules)
+    ├── day10/               # 10회차 실습
+    │   └── express-board/   # Express 게시판 서버 실습 프로젝트 (package.json, node_modules)
+    └── day11/               # 11회차 실습 (Prisma + SQLite - Todo CRUD)
+        ├── index.js         # Prisma Client 연결, Create/Read/Update/Delete 실습
+        ├── prisma/
+        │   ├── schema.prisma    # DB 설계도 (Todo Model 정의)
+        │   ├── dev.db           # SQLite 데이터베이스 파일
+        │   └── migrations/      # 마이그레이션 반영 내역
+        └── .env             # 데이터베이스 위치 설정
 ```
 
 ---
@@ -133,7 +141,7 @@ claude_fullStack/
 
 ### 4.4 학습 프로젝트 주의사항
 - 이 프로젝트는 **학습 목적**입니다. 복잡한 프레임워크 도입을 지양합니다.
-- 현재 진도에 맞는 기술만 사용합니다 (현재: HTML + CSS + JavaScript 기초/DOM/JSON/CRUD + Git & GitHub + Docker 기초 + Node.js/Express 기초).
+- 현재 진도에 맞는 기술만 사용합니다 (현재: HTML + CSS + JavaScript 기초/DOM/JSON/CRUD + Git & GitHub + Docker 기초 + Node.js/Express 기초 + Prisma ORM/SQLite).
 - 코드 설명 시 **원리와 동작 방식**을 함께 설명합니다.
 - 정답을 바로 주기보다 **학습에 도움이 되는 힌트**를 우선 제공합니다.
 
@@ -154,6 +162,7 @@ claude_fullStack/
 | Day 08 | Git & GitHub 기초             | Git 개념, git init/status/add/commit, GitHub 연동    |
 | Day 09 | Docker 기초                   | Docker 개념, Docker Desktop 설치, 이미지/컨테이너, Dockerfile(FROM/COPY/EXPOSE), docker build/run/ps/stop |
 | Day 10 | Node.js Express & package.json | Express 프레임워크 개념, npm init -y, package.json 생성, express 패키지 설치 |
+| Day 11 | Prisma ORM & SQLite          | ORM 개념, Prisma 설치, schema.prisma Model 정의, Migration, Prisma Client CRUD |
 
 ---
 
@@ -171,8 +180,8 @@ claude_fullStack/
 학습 진도에 따라 아래 기술이 순차적으로 추가될 예정입니다:
 
 ```
-현재 ──────────────────────────────────────────── 향후
-HTML [완료] → CSS [완료] → JavaScript [완료] → Git & GitHub [완료] → Docker [완료] → Node.js Express [진행중] → React → DB
+현재 ──────────────────────────────────────────────────────────────────── 향후
+HTML [완료] → CSS [완료] → JavaScript [완료] → Git & GitHub [완료] → Docker [완료] → Node.js Express [진행중] → Prisma ORM/SQLite [진행중] → React → DB(MongoDB/MySQL)
 ```
 
 새로운 기술 스택 도입 시 이 문서와 `SKILLS.md`를 함께 업데이트합니다.

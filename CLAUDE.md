@@ -22,8 +22,8 @@
 - 코드, 주석, 문서 등 모든 산출물에서 **이모지(Emoji) 사용을 금지**합니다.
 
 ### 2.3 학습 진도 제약
-- 현재 학습 진도: **9회차 (HTML/CSS/JS, Git & GitHub 완료, Docker 기초 학습 중)**
-- 아직 학습하지 않은 기술(Node.js, React, DB 등)은 작성하지 않습니다.
+- 현재 학습 진도: **11회차 (HTML/CSS/JS, Git & GitHub, Docker 기초, Node.js/Express 기초 완료, Prisma ORM/SQLite 학습 중)**
+- 아직 학습하지 않은 기술(React, MongoDB/MySQL 등)은 작성하지 않습니다.
 - 정답을 바로 주기보다 **원리와 동작 방식을 설명하고 힌트를 우선 제공**합니다.
 
 ### 2.4 코딩 컨벤션
