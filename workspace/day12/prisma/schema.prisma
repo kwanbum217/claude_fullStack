@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 할 일(Todo) 모델 정의
+model Todo {
+  id        Int      @id @default(autoincrement())
+  // id는 열(컬럼) 이름. 자동 증가 정수, 기본키(Primary Key)
+  // int 저장될 데이터의 형태가 정수형임을 의미한다
+  // @id 해당 열이 테이블의 기본키 (Primary Key)임을 의미
+  //  -> Primary Key(기본 키) : 데이터를 절대 겹치지 않게 구분하는 대표 값
+  // @default 데이터 추가시 기본 값을 설정하게 한다.
+  // autoincrement()는 데이터를 새로 추가할 때마다 값을 1씩 자동으로 증가시키면서 설정한다.
+  title     String
+  // String 저장된 데이터의 형태가 문자열임을 의미. 할 일 제목, 필수 문자열
+  isDone    Boolean  @default(false)
+  // Boolean 참/거짓을 나타내는 데이터 true 또는 false로 데이터를 지정한다. 완료 여부, 기본값 false
+  // @default(false) 기본값을 false(거짓)으로 설정한다.
+  createdAt DateTime @default(now())
+  // DateTime 저장할 데이터의 형태가 날짜와 시간임을 의미 생성 시각, 자동 기록
+  // @default(now()) 기본값을 현재로 지정한다.
+}

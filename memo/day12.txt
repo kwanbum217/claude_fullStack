@@ -1,0 +1,84 @@
+[ 12회차 진도 ]
+*** 오늘 진행할 프로세스 ***
+준비 -> 설계 -> 뼈대 -> HTTP 메서드 개념 이해 -> 조회 -> 생성 -> 수정 -> 삭제 -> 테스트 
+
+1. 준비 - Express, Prisma 설치
+  : Express(서버)와 Prisma(DB)를 같은 폴더에 함께 설치한다.
+
+  [ 프로세스 ]
+  1) package.json 생성
+  2) express 패키지 설치
+  3) prisma, @prisma/client 설치
+  4) npx prisma init 을 통해 SQLite 기반 초기 설정 생성
+
+  [ Express, Prisma 설치 실습 프롬프트 ]
+  workspace/day12 경로에 npm init -y 로 package.json을 만들고, express를 설치하고, prisma@6과 @prisma/client@6을 설치해줘. 그 다음 npx prisma init --datasource-provider sqlite로 SQLite 기반 초기 설정을 만들어줘.
+
+2. 설계 - Todo model 정의 + Migration
+  : '어떤 데이터를 저장할 지' 설계(model)하고,  그 설계를 실제 데이터베이스에 반영(migration)한다.
+
+    [ 테이블에 저장할 데이터(열데이터, 컬럼) 설계 ]
+    id : 자동 증가, 기본키(PK)
+    title : 문자열, 필수
+    isDone : 참/거짓, 기본값 false 설정
+    createdAt : 생성 시각, 자동 기록
+
+    [ Todo model 정의 + Migration 실습 프롬프트 ]
+    schema.prisma에 id(자동증가, 기본키), title(문자열, 필수), isDone(참/거짓, 기본값 false), createdAt(생성 시각, 자동 기록)을 가진 Todo model을 day11에서 진행한 것과 같이 추가하고, npx prisma migrate dev --name init 명령어로 실제 데이터베이스에 반영해줘
+
+3. 뼈대 - Express 서버에 Prisma client 연결
+  : server.js 파일 하나에 Express(요청을 받는 부분)와  Prisma client(DB를 다루는 부분)를 함께 불러와서, 앞으로 만들 모든 라우트 안에서 둘 다 사용할 수 있도록 준비한다.
+  : 이 과정에서 추가되는 부분이 하나 있는데 'express,json()'이라는 설정이다. '브라우저나 앱에서 보내는 데이터(JSON 형태)를 서버가 알아볼 수 있게 해석해달라는'는 뜻이다. 이게 없으면, 이후 진행할 POST/PUT 라우트에서 req.body(요청과 함께 전달 받은 데이터)가 빈 값으로 처리하게 된다.
+
+    [ server.js 기본구조 작성 실습 프롬프트 ]
+    server.js 파일을 만들어줘. express와 prisma client를 불러오고, app.use(express.json())을 설정한 다음, 3000번 포트에서 서버가 실행되도록 app.listen을 작성해줘. 아직 라우트는 만들지 말고 서버 뼈대만 먼저 만들고 node server.js로 실행해줘.
+
+4. HTTP 메서드 개념 이해 - GET, POST, PUT, DELETE란 무엇인가
+  : HTTP(Hypertext Transfer Protocol)란 웹 브라우저와 서버 간에 데이터를 주고 받기 위해 사용하는 통신 규약(프로토콜)을 의미한다.
+  : HTTP는 HTML 문서, 이미지, 동영상, JSON 등 웹 상에 존재하는 모든 자원을 주고 받을 수 있는 기반이 된다.
+  : HTTP의 주요 특징은 '요청과 응답(Request & Response)'이다. 클라이언트(웹 브라우저)거 서버로 필요한 것을 요청하면, 서버는 그에 맞는 결과를 응답하는 구조로 동작한다.
+  : GET, POST, PUT, DELETE 메서드를 HTTP 메서드라고 한다. HTTP 메서드는 브라우저가 서버에게 요청을 보낼 떄 '어떤 종류의 요청인지'를 표시하는 메서드이다.
+  : HTTP 메서드를 통해 웹에 입력할 주소가 같아도 요청 종류에 따라 서버가 다른 동작을 할 수 있게 한다.
+  : 지금까지 브라우저 주소창에 주소를 입력해서 확인햇던 모든 접속은 전부 GET 방식이었다. 오늘부터는 '데이터를 보내거나, 고치거나, 지우는'요청도 다루게 된다.
+
+    - GET : 데이터를 달라고 요청(데이터 조회)
+    - POST : 새로운 데이터를  '보내서 만들어 달라'고 요청(데이터 생성)
+    - PUT : 기존 데이터를 '고쳐달라'고 요청(데이터 수정)
+    - DELETE : 기존 데이터를 '지워달라'고 요청(데이터 삭제)
+
+    ex) 똑같은 식당이라도 손님이 하는 행동에 따라 직원이 다르게 반응 하는것과 같다. '메뉴판 주세요(GET)', '이거 주문할께요(POST)', '주문 내용 바꿔주세요(PUT)', '주문 취소할께요(DELETE)' 같은 창구에서도 요청 종류에 따라 다른 일이 벌어진다.
+
+5. 조회 API - GET
+  : API(Application Programming Interface)는 컴퓨터나 소프트웨어들이 서로 대화하고 데이터를 주고받기 위해 만든 규칙을 의미한다.
+    -> 손님(클라이언트, 웹 브라우저), 주방(서버), 메뉴판과 점원(API), 음식 창고(DB)
+  : 브라우저에서 'Todo 목록을 보여줘'라고 서버에 요청할 때 쓰는 주소를 만드는 단계이다. 11회차에 사용한 findMany() 메서드를 그대로 라우트 안에 작성한다.
+    -> findMany() : 데이터베이스에서 조건에 맞는 여러개의 데이터를 한꺼번에 조회 할 때 사용하는 메서드이다.
+
+      [ 전체 조회 API - GET 라우트 실습 프롬프트 ]
+      server.js에 GET /todos 라우트를 추가해줘. 요청이 오면 Prisma의 findMany()로 전체 Todo 목록을 조회해서 JSON으로 응답하도록 작성하고, 서버를 다시 실행해줘.
+
+6. 생성 API - POST
+  : 새 Todo를 추가 할 때 쓰는 주소를 만드는 단계이다.
+  : 11회차 떼 create()가 그대로 라우트 안에 들어가되, 이번에 데이터를 '요청과 함께 받아서' 저장한다는 점이 다르다.
+  : Claude AI를 통해 명령을 내린다면, AI는 Windows 터미널(cmd창)을 통해 코드를 작성하고 실행한다. Windows 터미널 기본 문자 인코딩 방식이 euc-kr로 설정되어 있으므로, DB 또는 웹 상에서 한글이 깨져서 저장된다.
+    -> 한글이 깨질 경우 아래와 같이 프롬프트에 다시 입력한다.
+      [ 한글 데이터가 깨져서 저장되고 웹에 출력될 경우의 프롬프트 - 2]
+      방금 curl로 한글 보낼 때 인코딩이 깨졌다. cmd 터미널의 코드페이지를 utf-8로 바꾸는 chcp65001 명령을 먼저 실행하고, 그 다음 같은 curl 명령을 다시 실행해줘.
+
+  [ 생성 API - POST 라우트 실습 프롬프트 -1 ]
+  server.js에 POST/todos 라우트를 추가해줘. req.body.title 값으로 새 Todo를 생성하고 결과를 JSON으로 응답하도록 작성하고, 서버를 다시 실행해줘.
+
+7. 수정 API - PUT
+  : 특정 Todo 하나를 수정 할 때 쓰는 주소를 만드는 단계이다.
+  : '몇 번  Todo를 고칠지'를 주소 안에 직접 포함시킨다는 점이 새롭다.
+
+  [ 수정 API - PUT 라우트 실습 프롬프트 ]
+  server.js에 PUT /todos/:id 라우트를 추가해줘. 파라미터 id와 body의 isDone 값을 받아서 해당 Todo를 수정하고 결과를 JSON으로 응답하도록 작성하고, 서버를 다시 실행해줘.
+
+8. 삭제 API - DELETE
+  : 특정 Todo를 지울 때 쓰는 주소를 만드는 단계이다. URL 파라미터로 전달받은 id로 지울 대상을 찾는다.
+  : 7번의 PUT과 같은 방식으로 id를 주소에서 꺼내 사용한다.
+  
+  [ 삭제 API - DELETE 라우트 실습 프롬프트 ]
+  server.js에 DELETE /todos/:id 라우트를 추가해줘. req.params.id로 파라미터 id를 가져온 후, 이 id를 사용해 prisma.todo.delete() 메서드로 Todo를 삭제하고, 결과를 JSON으로 응답하도록 작성해줘. 그리고 서버를 다시 실행해줘.
+  
