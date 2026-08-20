@@ -22,6 +22,12 @@
 claude_fullStack/
 ├── AGENTS.md            # (이 파일) AI 에이전트 협업 가이드
 ├── SKILLS.md            # 에이전트 역할·스킬 정의
+├── docs/                # 프로젝트 용도별 설계 및 기술 문서 허브
+│   ├── README.md        # 문서 허브 전체 인덱스 & 작성 가이드
+│   ├── design/          # 화면 / UI / UX 설계서 (design_spec.md)
+│   ├── api/             # 백엔드 / REST API 명세서 (api_spec.md)
+│   ├── database/        # 데이터베이스 모델 설계서 (db_schema.md)
+│   └── troubleshooting/ # 공통 트러블슈팅 및 회고 노트 (troubleshooting.md)
 ├── memo/                # 수업 진도 메모 (일차별 학습 노트)
 │   ├── ot.txt           # OT — 과정 소개, 개발환경 세팅
 │   ├── day01.txt        # 1회차 — 웹 개요, HTML 기초, 태그
@@ -33,9 +39,10 @@ claude_fullStack/
 │   ├── day07.txt        # 7회차 — JSON 이해, 기능 명세 정리, 미니 게시판 CRUD 실습
 │   ├── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
 │   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
-│   └── day10.txt        # 10회차 — Express 개념, 프로젝트 초기화(npm init), package.json, express 설치
-│   └── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
-│   └── day12.txt        # 12회차 — Express + Prisma 연동 REST API (GET/POST/PUT/DELETE) CRUD 실습
+│   ├── day10.txt        # 10회차 — Express 개념, 프로젝트 초기화(npm init), package.json, express 설치
+│   ├── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
+│   ├── day12.txt        # 12회차 — Express + Prisma 연동 REST API (GET/POST/PUT/DELETE) CRUD 실습
+│   └── day13.txt        # 13회차 — Todo 화면 개발 (HTML 뼈대 → 입력/목록 → Claude CSS 스타일링)
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 실습 코드
     ├── day01/               # 1회차 실습 (login1.html - 로그인 폼 실습)
@@ -59,21 +66,25 @@ claude_fullStack/
     ├── day09/               # 9회차 실습 (board-docker)
     ├── day10/               # 10회차 실습
     │   └── express-board/   # Express 게시판 서버 실습 프로젝트 (package.json, node_modules)
-    └── day11/               # 11회차 실습 (Prisma + SQLite - Todo CRUD)
-        ├── index.js         # Prisma Client 연결, Create/Read/Update/Delete 실습
-        ├── prisma/
-        │   ├── schema.prisma    # DB 설계도 (Todo Model 정의)
-        │   ├── dev.db           # SQLite 데이터베이스 파일
-        │   └── migrations/      # 마이그레이션 반영 내역
-        └── .env             # 데이터베이스 위치 설정
-    └── day12/               # 12회차 실습 (Express + Prisma - REST API CRUD)
-        ├── server.js         # Express 서버 + Prisma Client, REST API 라우트
-        ├── prisma/
-        │   ├── schema.prisma    # DB 설계도 (Todo Model 정의)
-        │   ├── dev.db           # SQLite 데이터베이스 파일
-        │   └── migrations/      # 마이그레이션 반영 내역
-        ├── package.json      # 프로젝트 의존성 (express, prisma, @prisma/client)
-        └── .env              # 데이터베이스 위치 설정
+    ├── day11/               # 11회차 실습 (Prisma + SQLite - Todo CRUD)
+    │   ├── index.js         # Prisma Client 연결, Create/Read/Update/Delete 실습
+    │   ├── prisma/
+    │   │   ├── schema.prisma    # DB 설계도 (Todo Model 정의)
+    │   │   ├── dev.db           # SQLite 데이터베이스 파일
+    │   │   └── migrations/      # 마이그레이션 반영 내역
+    │   └── .env             # 데이터베이스 위치 설정
+    ├── day12/               # 12회차 실습 (Express + Prisma - REST API CRUD)
+    │   ├── server.js         # Express 서버 + Prisma Client, REST API 라우트
+    │   ├── prisma/
+    │   │   ├── schema.prisma    # DB 설계도 (Todo Model 정의)
+    │   │   ├── dev.db           # SQLite 데이터베이스 파일
+    │   │   └── migrations/      # 마이그레이션 반영 내역
+    │   ├── package.json      # 프로젝트 의존성 (express, prisma, @prisma/client)
+    │   └── .env              # 데이터베이스 위치 설정
+    └── day13/               # 13회차 실습 (Todo 화면 구축 & Clean Blue/White 스타일링)
+        ├── index.html       # Todo 화면 마크업
+        ├── style.css        # Clean Blue & White 디자인 토큰 및 스타일시트
+        └── script.js        # 체크박스 취소선, 할 일 추가/수정/삭제, 진행률 연동 스크립트
 ```
 
 ---
@@ -132,6 +143,10 @@ claude_fullStack/
 - 기술 용어는 영어 원문을 병기합니다. (예: 선택자(Selector))
 
 ### 4.2 파일 작업 규칙
+- `docs/` 폴더: 프로젝트 설계서, 명세서, 가이드 문서를 관리합니다.
+  - `day*` 회차별 폴더 대신 **용도별 폴더**(`design/`, `api/`, `database/`, `troubleshooting/`)로 구조화합니다.
+  - 용도별 표준 파일명: 화면 설계서 `design/design_spec.md`, API 명세서 `api/api_spec.md`, DB 설계서 `database/db_schema.md`, 트러블슈팅 `troubleshooting/troubleshooting.md`.
+  - 상세 규칙은 `docs/README.md`를 따릅니다.
 - `memo/` 폴더: 수업 메모 파일입니다. **기존 내용을 임의로 수정하지 마세요.**
   - 새 내용 추가 시 기존 형식(들여쓰기, 번호 체계)을 따릅니다.
 - `workspace/` 폴더: 실습 코드 폴더입니다. 
@@ -173,6 +188,7 @@ claude_fullStack/
 | Day 10 | Node.js Express & package.json | Express 프레임워크 개념, npm init -y, package.json 생성, express 패키지 설치 |
 | Day 11 | Prisma ORM & SQLite          | ORM 개념, Prisma 설치, schema.prisma Model 정의, Migration, Prisma Client CRUD |
 | Day 12 | Express + Prisma REST API    | HTTP 메서드(GET/POST/PUT/DELETE), REST API 라우트, Prisma Client CRUD 연동 |
+| Day 13 | Todo 화면 개발 & Claude CSS | HTML 뼈대(입력/목록/구조) → Claude 디자인 시스템(토큰/스타일/인터랙션) |
 
 ---
 
