@@ -11,7 +11,7 @@
 | ---------- | ------------------------------------------------------- |
 | 프로젝트명 | **claude_fullStack** — 풀스택 웹 개발 학습 프로젝트     |
 | 학습 과정  | HTML → CSS → JavaScript → Node.js → DB(Prisma/SQLite) → React → DB(MongoDB/MySQL) |
-| 현재 진도  | **11회차** (Prisma ORM 기초, SQLite 연동 CRUD 학습 중) |
+| 현재 진도  | **12회차** (Express + Prisma 연동 REST API CRUD 완료, 13회차 준비 중) |
 | 학습 방식  | 오프라인 수업 → 메모 정리 → 실습 코드 작성              |
 
 ---
@@ -35,6 +35,7 @@ claude_fullStack/
 │   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
 │   └── day10.txt        # 10회차 — Express 개념, 프로젝트 초기화(npm init), package.json, express 설치
 │   └── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
+│   └── day12.txt        # 12회차 — Express + Prisma 연동 REST API (GET/POST/PUT/DELETE) CRUD 실습
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 실습 코드
     ├── day01/               # 1회차 실습 (login1.html - 로그인 폼 실습)
@@ -65,6 +66,14 @@ claude_fullStack/
         │   ├── dev.db           # SQLite 데이터베이스 파일
         │   └── migrations/      # 마이그레이션 반영 내역
         └── .env             # 데이터베이스 위치 설정
+    └── day12/               # 12회차 실습 (Express + Prisma - REST API CRUD)
+        ├── server.js         # Express 서버 + Prisma Client, REST API 라우트
+        ├── prisma/
+        │   ├── schema.prisma    # DB 설계도 (Todo Model 정의)
+        │   ├── dev.db           # SQLite 데이터베이스 파일
+        │   └── migrations/      # 마이그레이션 반영 내역
+        ├── package.json      # 프로젝트 의존성 (express, prisma, @prisma/client)
+        └── .env              # 데이터베이스 위치 설정
 ```
 
 ---
@@ -136,7 +145,7 @@ claude_fullStack/
 - CSS 파일은 가능한 외부 스타일시트로 분리합니다.
 - 파일명은 **영어 소문자 + 언더스코어(_)** 를 사용합니다.
 - `<meta charset="UTF-8">` 을 반드시 포함합니다.
-- **Claude 디자인 시스템(S9) 준수**: HTML/CSS 생성 시 DESIGN.md 기반 토큰(코랄/크림 색상, Garamond/Inter 폰트 스택, 뱃지, 카드 레이아웃)을 기본 디자인 규격으로 적용합니다.
+- **Claude 디자인 시스템(S9) 준수**: HTML/CSS 생성 시 본 문서에 정의된 디자인 토큰(코랄/크림 색상, Garamond/Inter 폰트 스택, 뱃지, 카드 레이아웃)을 기본 디자인 규격으로 적용합니다.
 - **이모지(Emoji) 사용 금지**: 코드, 주석, 문서 등 모든 산출물에서 이모지를 사용하지 않습니다.
 
 ### 4.4 학습 프로젝트 주의사항
@@ -163,6 +172,7 @@ claude_fullStack/
 | Day 09 | Docker 기초                   | Docker 개념, Docker Desktop 설치, 이미지/컨테이너, Dockerfile(FROM/COPY/EXPOSE), docker build/run/ps/stop |
 | Day 10 | Node.js Express & package.json | Express 프레임워크 개념, npm init -y, package.json 생성, express 패키지 설치 |
 | Day 11 | Prisma ORM & SQLite          | ORM 개념, Prisma 설치, schema.prisma Model 정의, Migration, Prisma Client CRUD |
+| Day 12 | Express + Prisma REST API    | HTTP 메서드(GET/POST/PUT/DELETE), REST API 라우트, Prisma Client CRUD 연동 |
 
 ---
 
@@ -181,7 +191,7 @@ claude_fullStack/
 
 ```
 현재 ──────────────────────────────────────────────────────────────────── 향후
-HTML [완료] → CSS [완료] → JavaScript [완료] → Git & GitHub [완료] → Docker [완료] → Node.js Express [진행중] → Prisma ORM/SQLite [진행중] → React → DB(MongoDB/MySQL)
+HTML [완료] → CSS [완료] → JavaScript [완료] → Git & GitHub [완료] → Docker [완료] → Node.js Express [완료] → Prisma ORM/SQLite [완료] → Express+Prisma REST API [완료] → React → DB(MongoDB/MySQL)
 ```
 
 새로운 기술 스택 도입 시 이 문서와 `SKILLS.md`를 함께 업데이트합니다.

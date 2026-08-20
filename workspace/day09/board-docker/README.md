@@ -27,7 +27,7 @@ JavaScript를 활용하여 동적 DOM 조작 및 데이터 CRUD 패턴을 학습
    * 삭제 확정 시 `posts` 배열에서 해당 게시글이 제거되고 목록이 다시 출력됩니다.
 
 4. **디자인 시스템 적용**
-   * Claude DESIGN.md 규격을 준수하여 크림 캔버스 배경, 코랄 포인트 색상, Google Fonts (EB Garamond & Inter) 폰트 스택을 적용했습니다.
+   * Claude 디자인 시스템 토큰(코랄/크림 색상, Garamond/Inter 폰트 스택)을 적용하여 크림 캔버스 배경, 코랄 포인트 색상을 구현했습니다.
 
 ---
 

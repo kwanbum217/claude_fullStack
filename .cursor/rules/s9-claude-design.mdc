@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Claude 디자인 시스템 적용 (S9)
 
-HTML 및 CSS 작성 시 DESIGN.md 기반의 디자인 토큰과 UI 규격을 적용합니다.
+HTML 및 CSS 작성 시 본 문서에 정의된 디자인 토큰과 UI 규격을 적용합니다.
 
 ## 핵심 적용 토큰
 - 색상: `--primary: #cc785c;`, `--canvas: #faf9f5;`, `--surface-card: #efe9de;`

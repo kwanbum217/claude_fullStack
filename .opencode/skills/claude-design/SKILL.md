@@ -1,11 +1,11 @@
 ---
 name: claude-design
-description: Claude 디자인 시스템 적용 스킬. HTML/CSS 파일 생성 시 DESIGN.md 기반 디자인 토큰(코랄/크림 색상 팔레트, Garamond/Inter 폰트 스택, 뱃지, 크림 카드, 둥근 모서리)을 적용할 때 사용합니다.
+description: Claude 디자인 시스템 적용 스킬. HTML/CSS 파일 생성 시 본 문서에 정의된 디자인 토큰(코랄/크림 색상 팔레트, Garamond/Inter 폰트 스택, 뱃지, 크림 카드, 둥근 모서리)을 적용할 때 사용합니다.
 ---
 
 # Claude 디자인 시스템 (S9)
 
-HTML 및 CSS 작성 시 Claude 디자인 가이드라인(DESIGN.md)에 따른 디자인 토큰과 UI 스타일을 적용합니다.
+HTML 및 CSS 작성 시 본 문서에 정의된 Claude 디자인 가이드라인에 따른 디자인 토큰과 UI 스타일을 적용합니다.
 
 ## 1. 디자인 토큰 (CSS Variables)
 

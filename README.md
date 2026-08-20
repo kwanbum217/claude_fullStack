@@ -10,7 +10,7 @@
 | --- | --- |
 | 프로젝트명 | **claude_fullStack** |
 | 학습 목표 | HTML5 $\rightarrow$ CSS3 $\rightarrow$ JavaScript $\rightarrow$ Node.js $\rightarrow$ Database(Prisma/SQLite) $\rightarrow$ React $\rightarrow$ Database(MongoDB/MySQL) 풀스택 개발 역량 강화 |
-| 현재 진도 | **11회차** (HTML, CSS, JavaScript 기초/DOM/JSON/CRUD, Git & GitHub, Docker 기초, Node.js/Express 기초 완료 / Prisma ORM & SQLite 학습 중) |
+| 현재 진도 | **12회차** (HTML, CSS, JavaScript 기초/DOM/JSON/CRUD, Git & GitHub, Docker 기초, Node.js/Express 기초 완료 / Express+Prisma REST API 완료) |
 | 개발 환경 | VS Code, Chrome Browser, Node.js, Git, GitHub, Docker Desktop |
 | 소통/주석 | 한국어 (기술 용어 영어 원문 병기) |
 
@@ -41,7 +41,8 @@ claude_fullStack/
 │   ├── day08.txt        # 8회차 — Git 개념, git init/status/add/commit, GitHub 연동
 │   ├── day09.txt        # 9회차 — Docker 개념, 이미지/컨테이너, Dockerfile, docker 명령어
 │   ├── day10.txt        # 10회차 — Express 개념, 프로젝트 초기화(npm init), package.json, express 설치
-│   └── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
+│   ├── day11.txt        # 11회차 — ORM/Prisma 개념, SQLite 연동, Model 정의, Migration, CRUD
+│   └── day12.txt        # 12회차 — Express+Prisma 연동 REST API (GET/POST/PUT/DELETE) CRUD 실습
 ├── resource/            # 학습 리소스 (이미지, 참고 자료 등)
 └── workspace/           # 회차별 실습 코드
     ├── day01/           # 1회차 실습 (login1.html)
@@ -54,7 +55,8 @@ claude_fullStack/
     ├── day08/           # 8회차 실습 (Git 저장소 실습 — git_practics)
     ├── day09/           # 9회차 실습 (board-docker — Dockerfile 작성 및 이미지화)
     ├── day10/           # 10회차 실습 (express-board — Express 게시판 서버, package.json)
-    └── day11/           # 11회차 실습 (Prisma + SQLite Todo CRUD — index.js, prisma/schema.prisma, dev.db)
+    ├── day11/           # 11회차 실습 (Prisma + SQLite Todo CRUD — index.js, prisma/schema.prisma, dev.db)
+    └── day12/           # 12회차 실습 (Express+Prisma REST API — server.js, prisma/schema.prisma, dev.db)
 ```
 
 ---
@@ -75,6 +77,7 @@ claude_fullStack/
 | **Day 09** | Docker 기초 | Docker 개념, Docker Desktop 설치, 이미지/컨테이너, Dockerfile(FROM/COPY/EXPOSE), docker build/run/ps/stop | [workspace/day09](workspace/day09) |
 | **Day 10** | Node.js Express & package.json | Express 프레임워크 개념, npm init -y, package.json 생성, express 패키지 설치 | [workspace/day10](workspace/day10) |
 | **Day 11** | Prisma ORM & SQLite | ORM 개념, Prisma 설치(prisma@6, @prisma/client@6), schema.prisma Model 정의, Migration(prisma migrate dev), Prisma Client CRUD | [workspace/day11](workspace/day11) |
+| **Day 12** | Express+Prisma REST API | HTTP 메서드(GET/POST/PUT/DELETE), REST API 라우트, Prisma Client CRUD 연동, 경로 파라미터, 요청 바디 파싱 | [workspace/day12](workspace/day12) |
 
 ---
 
@@ -94,7 +97,7 @@ claude_fullStack/
 | **S6** | 리소스 생성 | 학습용 다이어그램 및 시각 자료 생성 | 전체 에이전트 |
 | **S7** | 디버깅 및 문제 해결 | 오류 원인 분석 및 수정 힌트 제공 | 전체 에이전트 |
 | **S8** | 코드 리팩토링 | 코드 구조 개선 및 외부 파일 분리 | 전체 에이전트 |
-| **S9** | Claude 디자인 시스템 | DESIGN.md 기반 UI 스타일링 적용 | 전체 에이전트 |
+| **S9** | Claude 디자인 시스템 | 본 문서에 정의된 토큰 기반 UI 스타일링 적용 | 전체 에이전트 |
 | **S10** | 에이전트 문서 동기화 | 새 메모/자료 발생 시 전체 에이전트 지침서 동기화 | 전체 에이전트 |
 
 ---

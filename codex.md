@@ -21,7 +21,7 @@
 - 코드, 주석, 문서 등 모든 결과물에서 **이모지(Emoji)를 절대 사용하지 않습니다.**
 
 ### 2.3 학습 진도 준수
-- 현재 진도: **11회차 (HTML/CSS/JS, Git & GitHub, Docker 기초, Node.js/Express 기초 완료, Prisma ORM/SQLite 학습 중)**
+- 현재 진도: **12회차 (HTML/CSS/JS, Git & GitHub, Docker 기초, Node.js/Express 기초 완료, Express+Prisma REST API 완료)**
 - 미학습 기술(React, MongoDB/MySQL 등)은 생성 금지.
 - 소스 코드 생성 시 힌트와 설명 주석을 충실히 작성합니다.
 

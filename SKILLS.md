@@ -17,7 +17,7 @@
 | S6 | 리소스 생성           | 학습용 이미지, 다이어그램 등 생성      | `resource/`        | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
 | S7 | 디버깅 및 문제 해결   | 코드 오류 원인 분석 및 수정 안내       | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
 | S8 | 코드 리팩토링         | 기존 코드 구조 개선 및 최적화          | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
-| S9 | Claude 디자인 시스템 | DESIGN.md 토큰 기반 UI/CSS 스타일 적용 | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
+| S9 | Claude 디자인 시스템 | 본 문서에 정의된 토큰 기반 UI/CSS 스타일 적용 | `workspace/`       | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
 | S10| 에이전트 문서 동기화  | 새 메모/자료 발생 시 에이전트 문서 자동 동기화 | 프로젝트 전체 | 전체 에이전트 (Claude, Codex, Cursor, Antigravity, OpenCode) |
 
 ---
@@ -249,7 +249,7 @@
 
 ### S9. Claude 디자인 시스템 적용
 
-**목적**: 프로젝트 웹 UI 생성 시 Claude DESIGN.md 디자인 토큰(코랄/크림 토큰, Garamond/Inter 폰트 스택, 뱃지, 카드 등)을 일관되게 적용
+**목적**: 프로젝트 웹 UI 생성 시 Claude 디자인 시스템 토큰(코랄/크림 토큰, Garamond/Inter 폰트 스택, 뱃지, 카드 등)을 일관되게 적용
 
 **디자인 핵심 규격**:
 - **색상**: `--primary` (#cc785c), `--canvas` (#faf9f5), `--surface-card` (#efe9de)
@@ -305,9 +305,10 @@
 | JavaScript    | 완료   | O 사용 가능 (기초, DOM 조작, fetch/API, JSON, 미니 게시판 CRUD) |
 | Git & GitHub  | 완료   | O 사용 가능 (git init, status, add, commit, push, remote 연결) |
 | Docker 기초   | 완료   | O 사용 가능 (이미지/컨테이너 개념, Dockerfile FROM/COPY/EXPOSE, docker build/run/ps/stop) |
-| Node.js Express| 진행중 | O 사용 가능 (npm init -y, package.json 프로젝트 초기화, express 패키지 설치) |
-| Prisma (ORM)   | 진행중 | O 사용 가능 (prisma@6, @prisma/client@6 설치, npx prisma init --datasource-provider sqlite, schema.prisma Model 정의, prisma migrate dev, Prisma Client CRUD) |
-| SQLite         | 진행중 | O 사용 가능 (Prisma 연동 SQLite 파일 DB, dev.db) |
+| Node.js Express| 완료   | O 사용 가능 (npm init -y, package.json 프로젝트 초기화, express 패키지 설치, 서버 구현) |
+| Prisma (ORM)   | 완료   | O 사용 가능 (prisma@6, @prisma/client@6 설치, npx prisma init --datasource-provider sqlite, schema.prisma Model 정의, prisma migrate dev, Prisma Client CRUD) |
+| SQLite         | 완료   | O 사용 가능 (Prisma 연동 SQLite 파일 DB, dev.db) |
+| Express+Prisma REST API | 완료 | O 사용 가능 (GET/POST/PUT/DELETE 라우트, 경로 파라미터, 요청 바디 파싱, JSON 응답) |
 | React         | 미학습 | X 사용 불가      |
 | MongoDB/MySQL  | 미학습 | X 사용 불가      |
 
@@ -325,8 +326,9 @@ Phase 1 (현재)          Phase 2                 Phase 3
 [완료] JS DOM·JSON·CRUD  비동기(async/await)      React
 [완료] Git & GitHub 기초 배포                    MongoDB/MySQL
 [완료] Docker 기초
-[진행] Node.js Express
-[진행] Prisma & SQLite
+[완료] Node.js Express
+[완료] Prisma & SQLite
+[완료] Express+Prisma REST API
 ```
 
 ---
