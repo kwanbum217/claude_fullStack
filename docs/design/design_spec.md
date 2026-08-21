@@ -50,7 +50,7 @@
 | **Primary Active**| `--primary-active`| `#003ecc` | 버튼 마우스 클릭/호버 시 어두운 딥 블루 |
 | **Primary Subtle**| `--primary-subtle`| `#edf2fe` | 상단 뱃지 및 진행률 뱃지 배경 (연한 소프트 블루) |
 | **Primary Disabled**| `--primary-disabled`| `#a8b8cc`| 비활성화 버튼 및 연한 테두리 |
-| **Ink** | `--ink` | `#0a0b0d` | 가장 어두운 잉크 블랙 |
+| **Ink** | `--ink` | `#0a0b0d` | 가장 어두운 잉크 블랙 (취소 버튼 호버 텍스트) |
 | **Body Strong** | `--body-strong` | `#1e2329` | Todo 목록 항목 텍스트 (다크 차콜) |
 | **Body** | `--body` | `#5b616e` | 일반 본문 및 서브 설명 텍스트 (진한 슬레이트 회색) |
 | **Muted** | `--muted` | `#7c828a` | 보조 안내 문구, 푸터 텍스트 |
@@ -58,7 +58,7 @@
 | **Hairline** | `--hairline` | `#dee1e6` | 1px 기본 외곽 구분선 및 카드 테두리 |
 | **Hairline Soft**| `--hairline-soft`| `#eef0f3` | 내부 부드러운 구분선 |
 | **On Primary** | `--on-primary` | `#ffffff` | 블루 버튼 내부 텍스트 |
-| **Success** | `--success` | `#05b169` | 완료 체크박스 및 상태 표시 |
+| **Success** | `--success` | `#05b169` | 완료 체크박스 및 상태 표시 (확장용) |
 | **Error** | `--error` | `#cf202f` | 삭제 버튼 호버 시 강조 색상 |
 
 ### 2.2 타이포그래피 (Typography Hierarchy)
@@ -73,23 +73,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 ```
 
+**CSS 변수 토큰:**
+- `--font-display`: 제목용 (`Inter 700` Bold)
+- `--font-body`: 본문용 (`Inter 400/500/600`)
+
 | 분류 | 폰트 패밀리 | 크기 | 두께(Weight) | 행간 / 자간 | 용도 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Display Title** | `Inter` | 34px | 700 (Bold) | Line-height: 1.2 / Letter-spacing: -0.6px | 메인 앱 타이틀 ("오늘의 할 일", 파란색 `#0052ff`) |
+| **Display Title** | `Inter` (`var(--font-display)`) | 34px | 700 (Bold) | Line-height: 1.2 / Letter-spacing: -0.6px | 메인 앱 타이틀 ("오늘의 할 일", 파란색 `#0052ff`) |
 | **Badge Tag** | `Inter` | 12px | 600 (Semi-bold) | Line-height: 1.4 / Letter-spacing: 1.0px (대문자) | 상단 카테고리 뱃지 ("DAILY TASKS") |
-| **Input / Button** | `Inter` | 14px | 600 (Semi-bold) | Line-height: 1.0 / Letter-spacing: 0 | 할 일 입력창, 추가/저장 버튼 |
-| **Body Strong** | `Inter` | 15px | 500 (Medium) | Line-height: 1.5 / Letter-spacing: 0 | Todo 목록 텍스트 |
-| **Meta / Count** | `Inter` | 13px | 500 (Medium) | Line-height: 1.4 / Letter-spacing: 0 | 할 일 통계 카운트, 상태 레이블 |
+| **Input / Button** | `Inter` (`var(--font-body)`) | 14px | 600 (Semi-bold) | Line-height: 1.0 / Letter-spacing: 0 | 할 일 입력창, 추가/저장 버튼 |
+| **Body Strong** | `Inter` (`var(--font-body)`) | 15px | 500 (Medium) | Line-height: 1.5 / Letter-spacing: 0 | Todo 목록 텍스트 |
+| **Meta / Count** | `Inter` (`var(--font-body)`) | 13px | 500 (Medium) | Line-height: 1.4 / Letter-spacing: 0 | 할 일 통계 카운트, 상태 레이블 |
 
 ### 2.3 여백 및 형태 (Spacing & Border Radius)
 
 - **Border Radius:**
-  - `--rounded-sm: 6px`: 인라인 인풋, 수정/삭제 액션 버튼
+  - `--rounded-sm: 6px`: 인라인 인풋, 수정/삭제/저장/취소 액션 버튼
   - `--rounded-md: 10px`: 텍스트 인풋, 추가 버튼, 리스트 아이템
   - `--rounded-lg: 16px`: 메인 카드 컨테이너
   - `--rounded-pill: 9999px`: 카테고리 뱃지, 진행률 칩
 - **Spacing Scale (4px 기준):**
-  - `--space-xs: 8px` · `--space-sm: 12px` · `--space-md: 16px` · `--space-lg: 24px` · `--space-xl: 32px` · `--space-section: 64px`
+  - `--space-xxs: 4px` · `--space-xs: 8px` · `--space-sm: 12px` · `--space-md: 16px` · `--space-lg: 24px` · `--space-xl: 32px` · `--space-section: 64px`
 
 ---
 
@@ -171,8 +175,8 @@
 - **인라인 수정 인풋 (`.todo-edit-input`)**:
   - 높이: 36px, 패딩: `0 12px`, 테두리: `1px solid var(--primary)`, 포커스 링: `0 0 0 2px rgba(0, 82, 255, 0.15)`
 - **액션 버튼 그룹 (`.item-actions`)**:
-  - **수정 버튼 (`.edit-btn`, `.btn-edit`)**: 폰트 `13px / 500`, 색상 `var(--muted)`, 호버 시 `color: var(--primary); background: var(--primary-subtle)`
-  - **삭제 버튼 (`.delete-btn`, `.btn-delete`)**: **빨간 계열 배경(`background-color: #feecee; color: var(--error);`)을 기본 적용**하여 명확히 구분, 호버 시 `#fdd8db`
+  - **수정 버튼 (`.edit-btn`, `.btn-edit` → 실제 HTML에선 `class="edit-btn btn-edit"`로 병합)**: 폰트 `13px / 500`, 색상 `var(--muted)`, 호버 시 `color: var(--primary); background: var(--primary-subtle)`
+  - **삭제 버튼 (`.delete-btn`, `.btn-delete` → 실제 HTML에선 `class="delete-btn btn-delete"`로 병합)**: **빨간 계열 배경(`background-color: #feecee; color: var(--error);`)을 기본 적용**하여 명확히 구분, 호버 시 `#fdd8db`
   - **저장 버튼 (`.btn-save`)**: `background: var(--primary); color: #ffffff; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 6px`
   - **취소 버튼 (`.btn-cancel`)**: `border: 1px solid var(--hairline); color: var(--muted); font-size: 12px; padding: 4px 9px; border-radius: 6px`
 
@@ -222,7 +226,7 @@
 ```
 
 > **[ 1단계 실습 프롬프트 ]**  
-> `workspace/day13` 경로에 `index.html`을 생성해줘. Google Fonts에서 `Inter` 폰트를 불러오고, `style.css`를 연동해줘. 페이지 상단에는 'DAILY TASKS'라는 카테고리 뱃지와 '오늘의 할 일'이라는 H1 제목, 그리고 간단한 설명글을 작성해줘. 메인 카드 영역(`.app-card`)을 뼈대로 두고, 앞으로 이 안에 입력창, 버튼, 할 일 목록을 순서대로 추가할 예정이야.
+> `workspace/day13` 경로에 `index.html`을 생성해줘. Google Fonts에서 `Inter` 폰트(400, 500, 600, 700)와 `JetBrains Mono`(400, 500)를 불러오고, `style.css`를 연동해줘. 페이지 상단에는 'DAILY TASKS'라는 카테고리 뱃지와 '오늘의 할 일'이라는 H1 제목, 그리고 간단한 설명글을 작성해줘. 메인 카드 영역(`.app-card`)을 뼈대로 두고, 앞으로 이 안에 입력창, 버튼, 할 일 목록을 순서대로 추가할 예정이야.
 
 ---
 
@@ -264,8 +268,8 @@
       <input type="checkbox" class="todo-checkbox" checked aria-label="할 일 완료 여부 선택">
       <span class="todo-text">HTML 기본 뼈대 구조 작성하기</span>
       <div class="item-actions">
-        <button type="button" class="btn-edit" aria-label="할 일 수정">수정</button>
-        <button type="button" class="btn-delete" aria-label="할 일 삭제">삭제</button>
+        <button type="button" class="edit-btn btn-edit" aria-label="할 일 수정">수정</button>
+        <button type="button" class="delete-btn btn-delete" aria-label="할 일 삭제">삭제</button>
       </div>
     </li>
     <!-- 진행 중 항목 예시 1 -->
@@ -273,8 +277,17 @@
       <input type="checkbox" class="todo-checkbox" aria-label="할 일 완료 여부 선택">
       <span class="todo-text">Clean Blue 디자인 토큰 CSS 정의하기</span>
       <div class="item-actions">
-        <button type="button" class="btn-edit" aria-label="할 일 수정">수정</button>
-        <button type="button" class="btn-delete" aria-label="할 일 삭제">삭제</button>
+        <button type="button" class="edit-btn btn-edit" aria-label="할 일 수정">수정</button>
+        <button type="button" class="delete-btn btn-delete" aria-label="할 일 삭제">삭제</button>
+      </div>
+    </li>
+    <!-- 진행 중 항목 예시 2 -->
+    <li class="todo-item">
+      <input type="checkbox" class="todo-checkbox" aria-label="할 일 완료 여부 선택">
+      <span class="todo-text">반응형 레이아웃 및 마이크로 인터랙션 다듬기</span>
+      <div class="item-actions">
+        <button type="button" class="edit-btn btn-edit" aria-label="할 일 수정">수정</button>
+        <button type="button" class="delete-btn btn-delete" aria-label="할 일 삭제">삭제</button>
       </div>
     </li>
   </ul>
@@ -282,13 +295,13 @@
 
 <!-- 상태 요약 푸터 바 -->
 <footer class="todo-footer">
-  <span class="count-info">전체 <strong>2</strong>개 중 <strong>1</strong>개 완료</span>
-  <span class="status-badge">오늘 진행률 50%</span>
+  <span class="count-info">전체 <strong>3</strong>개 중 <strong>1</strong>개 완료</span>
+  <span class="status-badge">오늘 진행률 33%</span>
 </footer>
 ```
 
 > **[ 3단계 실습 프롬프트 ]**  
-> `workspace/day13/index.html`의 입력창 아래에 Todo 목록 영역(`<section class="list-section">`)과 상태 요약 푸터(`<footer class="todo-footer">`)를 추가해줘. `<ul>` 태그 안에 샘플 Todo 항목 2개를 `<li>`로 작성하고, 각 항목에는 체크박스, 할 일 텍스트, 그리고 수정 및 삭제 버튼을 묶은 액션 영역(`.item-actions`)이 포함되도록 해줘. 1개 항목에는 `completed` 클래스를 부여해서 완료 상태 구조를 확인할 수 있게 해줘.
+> `workspace/day13/index.html`의 입력창 아래에 Todo 목록 영역(`<section class="list-section">`)과 상태 요약 푸터(`<footer class="todo-footer">`)를 추가해줘. `<ul>` 태그 안에 샘플 Todo 항목 3개를 `<li>`로 작성하고, 각 항목에는 체크박스, 할 일 텍스트, 그리고 수정 및 삭제 버튼을 묶은 액션 영역(`.item-actions`)이 포함되도록 해줘. 1개 항목에는 `completed` 클래스를 부여해서 완료 상태 구조를 확인할 수 있게 해줘. 액션 버튼은 `edit-btn btn-edit`, `delete-btn btn-delete` 형태로 클래스를 병합해 작성해줘.
 
 ---
 
@@ -565,6 +578,7 @@ body {
 | **디자인 룰** | 전체 배경 흰색(`#ffffff`), 본문 진회색(`#5b616e`), 제목 파란색(`#0052ff`)이 적용되었는가? | [x] |
 | **입력 플레이스홀더** | 인풋 필드에 `"할 일 입력해주세요"`가 정확히 적용되었는가? | [x] |
 | **순서 없는 목록** | HTML `<ul>` 및 `<li>` 태그 기반으로 목록이 구현되었는가? | [x] |
+| **샘플 데이터** | 샘플 Todo 3개(완료 1개, 진행 2개), 통계 `전체 3개 중 1개 완료 / 진행률 33%` 일치하는가? | [x] |
 | **인라인 수정 기능** | 수정 버튼 클릭 시 인라인 입력창과 저장/취소 버튼으로 정상 전환되는가? | [x] |
 | **인터랙션 피드백** | 포커스 시 3px 블루 링, 추가 버튼 호버, 완료 삭선/디밍이 동작하는가? | [x] |
 | **컨벤션 준수** | 이모지 미사용, 2 spaces 들여쓰기, 한국어 주석 및 용어 병기 규칙을 준수했는가? | [x] |
